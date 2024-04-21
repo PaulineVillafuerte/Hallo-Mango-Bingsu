@@ -40,6 +40,7 @@ Partial Class frmMainMenu
         welcomepanel = New Panel()
         dashboardpanel = New Panel()
         categorypanel = New Panel()
+        productpanel = New Panel()
         searchbtn = New Button()
         searchbox = New TextBox()
         Label11 = New Label()
@@ -341,6 +342,7 @@ Partial Class frmMainMenu
         ' categorypanel
         ' 
         categorypanel.BackColor = SystemColors.Control
+        categorypanel.Controls.Add(productpanel)
         categorypanel.Controls.Add(searchbtn)
         categorypanel.Controls.Add(searchbox)
         categorypanel.Controls.Add(Label11)
@@ -349,10 +351,17 @@ Partial Class frmMainMenu
         categorypanel.Controls.Add(Label12)
         categorypanel.Controls.Add(productsincategorytable)
         categorypanel.Controls.Add(categorytable)
-        categorypanel.Location = New Point(-1, 0)
+        categorypanel.Location = New Point(0, 0)
         categorypanel.Name = "categorypanel"
         categorypanel.Size = New Size(1150, 883)
         categorypanel.TabIndex = 3
+        ' 
+        ' productpanel
+        ' 
+        productpanel.Location = New Point(158, 219)
+        productpanel.Name = "productpanel"
+        productpanel.Size = New Size(201, 239)
+        productpanel.TabIndex = 2
         ' 
         ' searchbtn
         ' 
@@ -948,4 +957,5 @@ Partial Class frmMainMenu
     Friend WithEvents searchbtn As Button
     Friend WithEvents Label11 As Label
     Friend WithEvents searchbox As TextBox
+    Friend WithEvents productpanel As Panel
 End Class
