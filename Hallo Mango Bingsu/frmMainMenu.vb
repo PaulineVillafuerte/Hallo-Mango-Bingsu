@@ -13,7 +13,7 @@
     End Sub
 
     ' WELCOME PANEL
-    Private Sub frmMainMenu_Load(sender As Object, e As EventArgs) 'Handles MyBase.Load
+    Private Sub frmMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'Handles MyBase.Load
         welcomepanel_Load()
     End Sub
 
@@ -97,6 +97,12 @@
 
     Private Sub category_updatebtn_Click(sender As Object, e As EventArgs) Handles category_updatebtn.Click
         Dim str As String = "UPDATE product_category SET category_name = '" & categorynametxt.Text & "', category_desc = '" & categorydesctxt.Text & "' WHERE category_id =  '" & selectedCategoryId & "'"
+        If String.IsNullOrWhiteSpace(categorynametxt.Text) OrElse String.IsNullOrWhiteSpace(categorydesctxt.Text) Then
+            MessageBox.Show("Please enter both category name and description.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+
         Try
             readquery(str)
             MessageBox.Show("Category has been updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -107,7 +113,19 @@
     End Sub
 
     Private Sub category_deletebtn_Click(sender As Object, e As EventArgs) Handles category_deletebtn.Click
+        Dim str As String = "DELETE FROM product_category WHERE category_id =  '" & selectedCategoryId & "'"
+        If String.IsNullOrWhiteSpace(categorynametxt.Text) OrElse String.IsNullOrWhiteSpace(categorydesctxt.Text) Then
+            MessageBox.Show("Please enter both category name and description.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
 
+        Try
+            readquery(str)
+            MessageBox.Show("Category has been deleted.", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            LoadCategoryList()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
     End Sub
 
     Private selectedCategoryId As Integer
