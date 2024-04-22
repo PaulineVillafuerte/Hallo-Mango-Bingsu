@@ -38,31 +38,9 @@ Partial Class frmMainMenu
         Panel3 = New Panel()
         Label10 = New Label()
         welcomepanel = New Panel()
+        PictureBox2 = New PictureBox()
+        welcomelabel = New Label()
         dashboardpanel = New Panel()
-        categorypanel = New Panel()
-        productpanel = New Panel()
-        searchbtn = New Button()
-        searchbox = New TextBox()
-        Label11 = New Label()
-        GroupBox2 = New GroupBox()
-        Button2 = New Button()
-        Button1 = New Button()
-        categorydesctxt = New TextBox()
-        Label16 = New Label()
-        categorynametxt = New TextBox()
-        Label15 = New Label()
-        category_addbtn = New Button()
-        Label14 = New Label()
-        Label13 = New Label()
-        Label12 = New Label()
-        productsincategorytable = New DataGridView()
-        DataGridViewTextBoxColumn7 = New DataGridViewTextBoxColumn()
-        DataGridViewTextBoxColumn8 = New DataGridViewTextBoxColumn()
-        Column7 = New DataGridViewTextBoxColumn()
-        categorytable = New DataGridView()
-        Column4 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
-        Column6 = New DataGridViewTextBoxColumn()
         Label5 = New Label()
         Label4 = New Label()
         Label3 = New Label()
@@ -86,17 +64,67 @@ Partial Class frmMainMenu
         Label7 = New Label()
         Panel4 = New Panel()
         Label6 = New Label()
-        PictureBox2 = New PictureBox()
-        welcomelabel = New Label()
+        categorypanel = New Panel()
+        productpanel1 = New Panel()
+        GroupBox1 = New GroupBox()
+        TextBox6 = New TextBox()
+        Label26 = New Label()
+        DateTimePicker2 = New DateTimePicker()
+        Label25 = New Label()
+        DateTimePicker1 = New DateTimePicker()
+        Label24 = New Label()
+        TextBox5 = New TextBox()
+        Label23 = New Label()
+        TextBox4 = New TextBox()
+        Label22 = New Label()
+        product_updatebtn = New Button()
+        product_deletebutton = New Button()
+        TextBox1 = New TextBox()
+        Label19 = New Label()
+        TextBox3 = New TextBox()
+        Label20 = New Label()
+        product_addbtn = New Button()
+        Label21 = New Label()
+        Label18 = New Label()
+        DataGridView4 = New DataGridView()
+        Column8 = New DataGridViewTextBoxColumn()
+        Column9 = New DataGridViewTextBoxColumn()
+        Column10 = New DataGridViewTextBoxColumn()
+        Column11 = New DataGridViewTextBoxColumn()
+        Column12 = New DataGridViewTextBoxColumn()
+        Column13 = New DataGridViewTextBoxColumn()
+        Column14 = New DataGridViewTextBoxColumn()
+        Label17 = New Label()
+        Button3 = New Button()
+        TextBox2 = New TextBox()
+        searchbtn = New Button()
+        searchbox = New TextBox()
+        Label11 = New Label()
+        GroupBox2 = New GroupBox()
+        category_updatebtn = New Button()
+        category_deletebtn = New Button()
+        categorydesctxt = New TextBox()
+        Label16 = New Label()
+        categorynametxt = New TextBox()
+        Label15 = New Label()
+        category_addbtn = New Button()
+        Label14 = New Label()
+        Label13 = New Label()
+        Label12 = New Label()
+        productsincategorytable = New DataGridView()
+        DataGridViewTextBoxColumn7 = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn8 = New DataGridViewTextBoxColumn()
+        Column7 = New DataGridViewTextBoxColumn()
+        categorylistdg = New DataGridView()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
+        Column6 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
         welcomepanel.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         dashboardpanel.SuspendLayout()
-        categorypanel.SuspendLayout()
-        GroupBox2.SuspendLayout()
-        CType(productsincategorytable, ComponentModel.ISupportInitialize).BeginInit()
-        CType(categorytable, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView3, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
@@ -104,7 +132,13 @@ Partial Class frmMainMenu
         Panel6.SuspendLayout()
         Panel5.SuspendLayout()
         Panel4.SuspendLayout()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        categorypanel.SuspendLayout()
+        productpanel1.SuspendLayout()
+        GroupBox1.SuspendLayout()
+        CType(DataGridView4, ComponentModel.ISupportInitialize).BeginInit()
+        GroupBox2.SuspendLayout()
+        CType(productsincategorytable, ComponentModel.ISupportInitialize).BeginInit()
+        CType(categorylistdg, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -312,18 +346,36 @@ Partial Class frmMainMenu
         ' 
         ' welcomepanel
         ' 
-        welcomepanel.Controls.Add(dashboardpanel)
         welcomepanel.Controls.Add(PictureBox2)
         welcomepanel.Controls.Add(welcomelabel)
         welcomepanel.ForeColor = Color.Black
-        welcomepanel.Location = New Point(350, 69)
+        welcomepanel.Location = New Point(356, 76)
         welcomepanel.Name = "welcomepanel"
-        welcomepanel.Size = New Size(1150, 883)
+        welcomepanel.Size = New Size(1130, 870)
         welcomepanel.TabIndex = 1
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
+        PictureBox2.Location = New Point(338, 115)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(500, 500)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 1
+        PictureBox2.TabStop = False
+        ' 
+        ' welcomelabel
+        ' 
+        welcomelabel.AutoSize = True
+        welcomelabel.Font = New Font("Gotham", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        welcomelabel.Location = New Point(176, 648)
+        welcomelabel.Name = "welcomelabel"
+        welcomelabel.Size = New Size(860, 45)
+        welcomelabel.TabIndex = 0
+        welcomelabel.Text = "Inventory Database Management System"
         ' 
         ' dashboardpanel
         ' 
-        dashboardpanel.Controls.Add(categorypanel)
         dashboardpanel.Controls.Add(Label5)
         dashboardpanel.Controls.Add(Label4)
         dashboardpanel.Controls.Add(Label3)
@@ -334,15 +386,260 @@ Partial Class frmMainMenu
         dashboardpanel.Controls.Add(Panel6)
         dashboardpanel.Controls.Add(Panel5)
         dashboardpanel.Controls.Add(Panel4)
-        dashboardpanel.Location = New Point(0, 0)
+        dashboardpanel.Location = New Point(356, 76)
         dashboardpanel.Name = "dashboardpanel"
-        dashboardpanel.Size = New Size(1150, 883)
+        dashboardpanel.Size = New Size(1130, 883)
         dashboardpanel.TabIndex = 2
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.BackColor = Color.Black
+        Label5.Font = New Font("Gotham", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label5.ForeColor = Color.White
+        Label5.Location = New Point(750, 337)
+        Label5.Margin = New Padding(2)
+        Label5.Name = "Label5"
+        Label5.Padding = New Padding(94, 10, 94, 10)
+        Label5.Size = New Size(350, 43)
+        Label5.TabIndex = 9
+        Label5.Text = "Dili ko pa alam"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.BackColor = Color.Black
+        Label4.Font = New Font("Gotham", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label4.ForeColor = Color.White
+        Label4.Location = New Point(389, 337)
+        Label4.Margin = New Padding(2)
+        Label4.Name = "Label4"
+        Label4.Padding = New Padding(96, 10, 95, 10)
+        Label4.Size = New Size(350, 43)
+        Label4.TabIndex = 8
+        Label4.Text = "Soon to Expire"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.BackColor = Color.Black
+        Label3.Font = New Font("Gotham", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label3.ForeColor = Color.White
+        Label3.Location = New Point(29, 337)
+        Label3.Margin = New Padding(2)
+        Label3.Name = "Label3"
+        Label3.Padding = New Padding(88, 10, 87, 10)
+        Label3.Size = New Size(350, 43)
+        Label3.TabIndex = 7
+        Label3.Text = "Low Stock Level"
+        ' 
+        ' DataGridView3
+        ' 
+        DataGridView3.AllowUserToAddRows = False
+        DataGridView3.AllowUserToDeleteRows = False
+        DataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView3.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn4, DataGridViewTextBoxColumn5, DataGridViewTextBoxColumn6})
+        DataGridView3.Location = New Point(750, 380)
+        DataGridView3.Name = "DataGridView3"
+        DataGridView3.ReadOnly = True
+        DataGridView3.RowHeadersVisible = False
+        DataGridView3.RowHeadersWidth = 51
+        DataGridView3.Size = New Size(350, 450)
+        DataGridView3.TabIndex = 6
+        ' 
+        ' DataGridViewTextBoxColumn4
+        ' 
+        DataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn4.FillWeight = 98.9899F
+        DataGridViewTextBoxColumn4.HeaderText = "ID"
+        DataGridViewTextBoxColumn4.MinimumWidth = 6
+        DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        DataGridViewTextBoxColumn4.ReadOnly = True
+        ' 
+        ' DataGridViewTextBoxColumn5
+        ' 
+        DataGridViewTextBoxColumn5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn5.FillWeight = 101.264534F
+        DataGridViewTextBoxColumn5.HeaderText = "Product Name"
+        DataGridViewTextBoxColumn5.MinimumWidth = 6
+        DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        DataGridViewTextBoxColumn5.ReadOnly = True
+        ' 
+        ' DataGridViewTextBoxColumn6
+        ' 
+        DataGridViewTextBoxColumn6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn6.FillWeight = 99.74557F
+        DataGridViewTextBoxColumn6.HeaderText = "Expiration Date"
+        DataGridViewTextBoxColumn6.MinimumWidth = 6
+        DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        DataGridViewTextBoxColumn6.ReadOnly = True
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.AllowUserToAddRows = False
+        DataGridView2.AllowUserToDeleteRows = False
+        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView2.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, DataGridViewTextBoxColumn3})
+        DataGridView2.Location = New Point(389, 380)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.ReadOnly = True
+        DataGridView2.RowHeadersVisible = False
+        DataGridView2.RowHeadersWidth = 51
+        DataGridView2.Size = New Size(350, 450)
+        DataGridView2.TabIndex = 5
+        ' 
+        ' DataGridViewTextBoxColumn1
+        ' 
+        DataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn1.FillWeight = 98.9899F
+        DataGridViewTextBoxColumn1.HeaderText = "ID"
+        DataGridViewTextBoxColumn1.MinimumWidth = 6
+        DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        DataGridViewTextBoxColumn1.ReadOnly = True
+        ' 
+        ' DataGridViewTextBoxColumn2
+        ' 
+        DataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn2.FillWeight = 101.264534F
+        DataGridViewTextBoxColumn2.HeaderText = "Product Name"
+        DataGridViewTextBoxColumn2.MinimumWidth = 6
+        DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        DataGridViewTextBoxColumn2.ReadOnly = True
+        ' 
+        ' DataGridViewTextBoxColumn3
+        ' 
+        DataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn3.FillWeight = 99.74557F
+        DataGridViewTextBoxColumn3.HeaderText = "Expiration Date"
+        DataGridViewTextBoxColumn3.MinimumWidth = 6
+        DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        DataGridViewTextBoxColumn3.ReadOnly = True
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3})
+        DataGridView1.Location = New Point(29, 380)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.Size = New Size(350, 450)
+        DataGridView1.TabIndex = 4
+        ' 
+        ' Column1
+        ' 
+        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column1.FillWeight = 98.9899F
+        Column1.HeaderText = "ID"
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        Column1.ReadOnly = True
+        ' 
+        ' Column2
+        ' 
+        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column2.FillWeight = 101.264534F
+        Column2.HeaderText = "Product Name"
+        Column2.MinimumWidth = 6
+        Column2.Name = "Column2"
+        Column2.ReadOnly = True
+        ' 
+        ' Column3
+        ' 
+        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column3.FillWeight = 99.74557F
+        Column3.HeaderText = "Quantity In Stock"
+        Column3.MinimumWidth = 6
+        Column3.Name = "Column3"
+        Column3.ReadOnly = True
+        ' 
+        ' Panel7
+        ' 
+        Panel7.BackColor = Color.FromArgb(CByte(48), CByte(76), CByte(153))
+        Panel7.Controls.Add(Label9)
+        Panel7.Location = New Point(850, 52)
+        Panel7.Name = "Panel7"
+        Panel7.Size = New Size(250, 250)
+        Panel7.TabIndex = 3
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label9.ForeColor = Color.White
+        Label9.Location = New Point(59, 34)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(137, 26)
+        Label9.TabIndex = 3
+        Label9.Text = "Total Staff"
+        ' 
+        ' Panel6
+        ' 
+        Panel6.BackColor = Color.FromArgb(CByte(139), CByte(47), CByte(153))
+        Panel6.Controls.Add(Label8)
+        Panel6.Location = New Point(578, 52)
+        Panel6.Name = "Panel6"
+        Panel6.Size = New Size(250, 250)
+        Panel6.TabIndex = 2
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label8.ForeColor = Color.White
+        Label8.Location = New Point(19, 34)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(215, 26)
+        Label8.TabIndex = 2
+        Label8.Text = "Total Menu Items"
+        ' 
+        ' Panel5
+        ' 
+        Panel5.BackColor = Color.FromArgb(CByte(237), CByte(152), CByte(84))
+        Panel5.Controls.Add(Label7)
+        Panel5.Location = New Point(304, 52)
+        Panel5.Name = "Panel5"
+        Panel5.Size = New Size(250, 250)
+        Panel5.TabIndex = 1
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label7.ForeColor = Color.White
+        Label7.Location = New Point(34, 34)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(185, 26)
+        Label7.TabIndex = 1
+        Label7.Text = "Total Products"
+        ' 
+        ' Panel4
+        ' 
+        Panel4.BackColor = Color.FromArgb(CByte(72), CByte(163), CByte(165))
+        Panel4.Controls.Add(Label6)
+        Panel4.Location = New Point(29, 52)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(250, 250)
+        Panel4.TabIndex = 0
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label6.ForeColor = Color.White
+        Label6.Location = New Point(23, 34)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(209, 26)
+        Label6.TabIndex = 0
+        Label6.Text = "Total Categories"
         ' 
         ' categorypanel
         ' 
         categorypanel.BackColor = SystemColors.Control
-        categorypanel.Controls.Add(productpanel)
+        categorypanel.Controls.Add(productpanel1)
         categorypanel.Controls.Add(searchbtn)
         categorypanel.Controls.Add(searchbox)
         categorypanel.Controls.Add(Label11)
@@ -350,18 +647,356 @@ Partial Class frmMainMenu
         categorypanel.Controls.Add(Label13)
         categorypanel.Controls.Add(Label12)
         categorypanel.Controls.Add(productsincategorytable)
-        categorypanel.Controls.Add(categorytable)
-        categorypanel.Location = New Point(0, 0)
+        categorypanel.Controls.Add(categorylistdg)
+        categorypanel.Location = New Point(356, 76)
         categorypanel.Name = "categorypanel"
-        categorypanel.Size = New Size(1150, 883)
+        categorypanel.Size = New Size(1130, 883)
         categorypanel.TabIndex = 3
         ' 
-        ' productpanel
+        ' productpanel1
         ' 
-        productpanel.Location = New Point(158, 219)
-        productpanel.Name = "productpanel"
-        productpanel.Size = New Size(201, 239)
-        productpanel.TabIndex = 2
+        productpanel1.Controls.Add(GroupBox1)
+        productpanel1.Controls.Add(Label18)
+        productpanel1.Controls.Add(DataGridView4)
+        productpanel1.Controls.Add(Label17)
+        productpanel1.Controls.Add(Button3)
+        productpanel1.Controls.Add(TextBox2)
+        productpanel1.Location = New Point(569, 3)
+        productpanel1.Name = "productpanel1"
+        productpanel1.Size = New Size(1120, 883)
+        productpanel1.TabIndex = 4
+        ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Controls.Add(TextBox6)
+        GroupBox1.Controls.Add(Label26)
+        GroupBox1.Controls.Add(DateTimePicker2)
+        GroupBox1.Controls.Add(Label25)
+        GroupBox1.Controls.Add(DateTimePicker1)
+        GroupBox1.Controls.Add(Label24)
+        GroupBox1.Controls.Add(TextBox5)
+        GroupBox1.Controls.Add(Label23)
+        GroupBox1.Controls.Add(TextBox4)
+        GroupBox1.Controls.Add(Label22)
+        GroupBox1.Controls.Add(product_updatebtn)
+        GroupBox1.Controls.Add(product_deletebutton)
+        GroupBox1.Controls.Add(TextBox1)
+        GroupBox1.Controls.Add(Label19)
+        GroupBox1.Controls.Add(TextBox3)
+        GroupBox1.Controls.Add(Label20)
+        GroupBox1.Controls.Add(product_addbtn)
+        GroupBox1.Controls.Add(Label21)
+        GroupBox1.FlatStyle = FlatStyle.Flat
+        GroupBox1.Location = New Point(42, 467)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Size = New Size(1055, 376)
+        GroupBox1.TabIndex = 15
+        GroupBox1.TabStop = False
+        ' 
+        ' TextBox6
+        ' 
+        TextBox6.BackColor = Color.WhiteSmoke
+        TextBox6.BorderStyle = BorderStyle.FixedSingle
+        TextBox6.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox6.Location = New Point(727, 198)
+        TextBox6.Name = "TextBox6"
+        TextBox6.Size = New Size(300, 29)
+        TextBox6.TabIndex = 20
+        ' 
+        ' Label26
+        ' 
+        Label26.AutoSize = True
+        Label26.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label26.Location = New Point(555, 204)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(105, 23)
+        Label26.TabIndex = 19
+        Label26.Text = "Unit Price"
+        ' 
+        ' DateTimePicker2
+        ' 
+        DateTimePicker2.Location = New Point(727, 152)
+        DateTimePicker2.Name = "DateTimePicker2"
+        DateTimePicker2.Size = New Size(300, 27)
+        DateTimePicker2.TabIndex = 18
+        ' 
+        ' Label25
+        ' 
+        Label25.AutoSize = True
+        Label25.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label25.Location = New Point(554, 154)
+        Label25.Name = "Label25"
+        Label25.Size = New Size(164, 23)
+        Label25.TabIndex = 17
+        Label25.Text = "Expiration Date"
+        ' 
+        ' DateTimePicker1
+        ' 
+        DateTimePicker1.Location = New Point(727, 103)
+        DateTimePicker1.Name = "DateTimePicker1"
+        DateTimePicker1.Size = New Size(300, 27)
+        DateTimePicker1.TabIndex = 16
+        ' 
+        ' Label24
+        ' 
+        Label24.AutoSize = True
+        Label24.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label24.Location = New Point(554, 105)
+        Label24.Name = "Label24"
+        Label24.Size = New Size(143, 23)
+        Label24.TabIndex = 12
+        Label24.Text = "Restock Date"
+        ' 
+        ' TextBox5
+        ' 
+        TextBox5.BackColor = Color.WhiteSmoke
+        TextBox5.BorderStyle = BorderStyle.FixedSingle
+        TextBox5.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox5.Location = New Point(221, 246)
+        TextBox5.Name = "TextBox5"
+        TextBox5.Size = New Size(300, 29)
+        TextBox5.TabIndex = 11
+        ' 
+        ' Label23
+        ' 
+        Label23.AutoSize = True
+        Label23.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label23.Location = New Point(27, 252)
+        Label23.Name = "Label23"
+        Label23.Size = New Size(182, 23)
+        Label23.TabIndex = 10
+        Label23.Text = "Quantity In Stock"
+        ' 
+        ' TextBox4
+        ' 
+        TextBox4.BackColor = Color.WhiteSmoke
+        TextBox4.BorderStyle = BorderStyle.FixedSingle
+        TextBox4.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox4.Location = New Point(221, 198)
+        TextBox4.Name = "TextBox4"
+        TextBox4.Size = New Size(300, 29)
+        TextBox4.TabIndex = 9
+        ' 
+        ' Label22
+        ' 
+        Label22.AutoSize = True
+        Label22.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label22.Location = New Point(28, 204)
+        Label22.Name = "Label22"
+        Label22.Size = New Size(96, 23)
+        Label22.TabIndex = 8
+        Label22.Text = "Quantity"
+        ' 
+        ' product_updatebtn
+        ' 
+        product_updatebtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        product_updatebtn.FlatAppearance.BorderSize = 0
+        product_updatebtn.FlatStyle = FlatStyle.Flat
+        product_updatebtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        product_updatebtn.ForeColor = Color.White
+        product_updatebtn.Location = New Point(423, 313)
+        product_updatebtn.Name = "product_updatebtn"
+        product_updatebtn.Size = New Size(220, 40)
+        product_updatebtn.TabIndex = 7
+        product_updatebtn.Text = "UPDATE"
+        product_updatebtn.UseVisualStyleBackColor = False
+        ' 
+        ' product_deletebutton
+        ' 
+        product_deletebutton.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        product_deletebutton.FlatAppearance.BorderSize = 0
+        product_deletebutton.FlatStyle = FlatStyle.Flat
+        product_deletebutton.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        product_deletebutton.ForeColor = Color.White
+        product_deletebutton.Location = New Point(663, 313)
+        product_deletebutton.Name = "product_deletebutton"
+        product_deletebutton.Size = New Size(220, 40)
+        product_deletebutton.TabIndex = 6
+        product_deletebutton.Text = "DELETE"
+        product_deletebutton.UseVisualStyleBackColor = False
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.BackColor = Color.WhiteSmoke
+        TextBox1.BorderStyle = BorderStyle.FixedSingle
+        TextBox1.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox1.Location = New Point(221, 148)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(300, 29)
+        TextBox1.TabIndex = 5
+        ' 
+        ' Label19
+        ' 
+        Label19.AutoSize = True
+        Label19.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label19.Location = New Point(27, 154)
+        Label19.Name = "Label19"
+        Label19.Size = New Size(103, 23)
+        Label19.TabIndex = 4
+        Label19.Text = "Category"
+        ' 
+        ' TextBox3
+        ' 
+        TextBox3.BackColor = Color.WhiteSmoke
+        TextBox3.BorderStyle = BorderStyle.FixedSingle
+        TextBox3.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox3.Location = New Point(221, 103)
+        TextBox3.Name = "TextBox3"
+        TextBox3.Size = New Size(300, 29)
+        TextBox3.TabIndex = 3
+        ' 
+        ' Label20
+        ' 
+        Label20.AutoSize = True
+        Label20.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label20.Location = New Point(27, 109)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(153, 23)
+        Label20.TabIndex = 2
+        Label20.Text = "Product Name"
+        ' 
+        ' product_addbtn
+        ' 
+        product_addbtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        product_addbtn.FlatAppearance.BorderSize = 0
+        product_addbtn.FlatStyle = FlatStyle.Flat
+        product_addbtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        product_addbtn.ForeColor = Color.White
+        product_addbtn.Location = New Point(184, 313)
+        product_addbtn.Name = "product_addbtn"
+        product_addbtn.Size = New Size(220, 40)
+        product_addbtn.TabIndex = 1
+        product_addbtn.Text = "ADD"
+        product_addbtn.UseVisualStyleBackColor = False
+        ' 
+        ' Label21
+        ' 
+        Label21.AutoSize = True
+        Label21.Font = New Font("Gotham", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label21.Location = New Point(23, 38)
+        Label21.Name = "Label21"
+        Label21.Size = New Size(247, 32)
+        Label21.TabIndex = 0
+        Label21.Text = "Manage Product"
+        ' 
+        ' Label18
+        ' 
+        Label18.AutoSize = True
+        Label18.BackColor = Color.Black
+        Label18.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label18.ForeColor = Color.White
+        Label18.Location = New Point(42, 105)
+        Label18.Name = "Label18"
+        Label18.Padding = New Padding(450, 5, 450, 5)
+        Label18.Size = New Size(1055, 36)
+        Label18.TabIndex = 14
+        Label18.Text = "Product List"
+        ' 
+        ' DataGridView4
+        ' 
+        DataGridView4.AllowUserToAddRows = False
+        DataGridView4.AllowUserToDeleteRows = False
+        DataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView4.Columns.AddRange(New DataGridViewColumn() {Column8, Column9, Column10, Column11, Column12, Column13, Column14})
+        DataGridView4.Location = New Point(42, 141)
+        DataGridView4.Name = "DataGridView4"
+        DataGridView4.ReadOnly = True
+        DataGridView4.RowHeadersVisible = False
+        DataGridView4.RowHeadersWidth = 51
+        DataGridView4.Size = New Size(1055, 300)
+        DataGridView4.TabIndex = 13
+        ' 
+        ' Column8
+        ' 
+        Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column8.HeaderText = "ID"
+        Column8.MinimumWidth = 6
+        Column8.Name = "Column8"
+        Column8.ReadOnly = True
+        ' 
+        ' Column9
+        ' 
+        Column9.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column9.HeaderText = "Product Name"
+        Column9.MinimumWidth = 6
+        Column9.Name = "Column9"
+        Column9.ReadOnly = True
+        ' 
+        ' Column10
+        ' 
+        Column10.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column10.HeaderText = "Quantity"
+        Column10.MinimumWidth = 6
+        Column10.Name = "Column10"
+        Column10.ReadOnly = True
+        ' 
+        ' Column11
+        ' 
+        Column11.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column11.HeaderText = "Unit Price"
+        Column11.MinimumWidth = 6
+        Column11.Name = "Column11"
+        Column11.ReadOnly = True
+        ' 
+        ' Column12
+        ' 
+        Column12.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column12.HeaderText = "Quantity In Stock"
+        Column12.MinimumWidth = 6
+        Column12.Name = "Column12"
+        Column12.ReadOnly = True
+        ' 
+        ' Column13
+        ' 
+        Column13.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column13.HeaderText = "Restocked Date"
+        Column13.MinimumWidth = 6
+        Column13.Name = "Column13"
+        Column13.ReadOnly = True
+        ' 
+        ' Column14
+        ' 
+        Column14.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column14.HeaderText = "Expiration Date"
+        Column14.MinimumWidth = 6
+        Column14.Name = "Column14"
+        Column14.ReadOnly = True
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.Font = New Font("Gotham", 22.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label17.ForeColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        Label17.Location = New Point(33, 28)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(167, 42)
+        Label17.TabIndex = 12
+        Label17.Text = "Product"
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = SystemColors.Window
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Image = CType(resources.GetObject("Button3.Image"), Image)
+        Button3.ImageAlign = ContentAlignment.MiddleRight
+        Button3.Location = New Point(1056, 40)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(25, 25)
+        Button3.TabIndex = 10
+        Button3.TextImageRelation = TextImageRelation.TextBeforeImage
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.BorderStyle = BorderStyle.FixedSingle
+        TextBox2.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        TextBox2.ForeColor = Color.DimGray
+        TextBox2.Location = New Point(496, 37)
+        TextBox2.Name = "TextBox2"
+        TextBox2.PlaceholderText = "Search"
+        TextBox2.Size = New Size(600, 29)
+        TextBox2.TabIndex = 11
         ' 
         ' searchbtn
         ' 
@@ -401,8 +1036,8 @@ Partial Class frmMainMenu
         ' 
         ' GroupBox2
         ' 
-        GroupBox2.Controls.Add(Button2)
-        GroupBox2.Controls.Add(Button1)
+        GroupBox2.Controls.Add(category_updatebtn)
+        GroupBox2.Controls.Add(category_deletebtn)
         GroupBox2.Controls.Add(categorydesctxt)
         GroupBox2.Controls.Add(Label16)
         GroupBox2.Controls.Add(categorynametxt)
@@ -416,33 +1051,33 @@ Partial Class frmMainMenu
         GroupBox2.TabIndex = 6
         GroupBox2.TabStop = False
         ' 
-        ' Button2
+        ' category_updatebtn
         ' 
-        Button2.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
-        Button2.FlatAppearance.BorderSize = 0
-        Button2.FlatStyle = FlatStyle.Flat
-        Button2.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button2.ForeColor = Color.White
-        Button2.Location = New Point(409, 212)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(220, 40)
-        Button2.TabIndex = 7
-        Button2.Text = "UPDATE"
-        Button2.UseVisualStyleBackColor = False
+        category_updatebtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        category_updatebtn.FlatAppearance.BorderSize = 0
+        category_updatebtn.FlatStyle = FlatStyle.Flat
+        category_updatebtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        category_updatebtn.ForeColor = Color.White
+        category_updatebtn.Location = New Point(409, 212)
+        category_updatebtn.Name = "category_updatebtn"
+        category_updatebtn.Size = New Size(220, 40)
+        category_updatebtn.TabIndex = 7
+        category_updatebtn.Text = "UPDATE"
+        category_updatebtn.UseVisualStyleBackColor = False
         ' 
-        ' Button1
+        ' category_deletebtn
         ' 
-        Button1.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
-        Button1.FlatAppearance.BorderSize = 0
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.ForeColor = Color.White
-        Button1.Location = New Point(649, 212)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(220, 40)
-        Button1.TabIndex = 6
-        Button1.Text = "DELETE"
-        Button1.UseVisualStyleBackColor = False
+        category_deletebtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        category_deletebtn.FlatAppearance.BorderSize = 0
+        category_deletebtn.FlatStyle = FlatStyle.Flat
+        category_deletebtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        category_deletebtn.ForeColor = Color.White
+        category_deletebtn.Location = New Point(649, 212)
+        category_deletebtn.Name = "category_deletebtn"
+        category_deletebtn.Size = New Size(220, 40)
+        category_deletebtn.TabIndex = 6
+        category_deletebtn.Text = "DELETE"
+        category_deletebtn.UseVisualStyleBackColor = False
         ' 
         ' categorydesctxt
         ' 
@@ -536,11 +1171,14 @@ Partial Class frmMainMenu
         ' 
         ' productsincategorytable
         ' 
+        productsincategorytable.AllowUserToAddRows = False
+        productsincategorytable.AllowUserToDeleteRows = False
         productsincategorytable.BackgroundColor = Color.White
         productsincategorytable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         productsincategorytable.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn7, DataGridViewTextBoxColumn8, Column7})
         productsincategorytable.Location = New Point(697, 137)
         productsincategorytable.Name = "productsincategorytable"
+        productsincategorytable.ReadOnly = True
         productsincategorytable.RowHeadersVisible = False
         productsincategorytable.RowHeadersWidth = 51
         productsincategorytable.Size = New Size(400, 400)
@@ -552,6 +1190,7 @@ Partial Class frmMainMenu
         DataGridViewTextBoxColumn7.HeaderText = "ID"
         DataGridViewTextBoxColumn7.MinimumWidth = 6
         DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        DataGridViewTextBoxColumn7.ReadOnly = True
         ' 
         ' DataGridViewTextBoxColumn8
         ' 
@@ -559,6 +1198,7 @@ Partial Class frmMainMenu
         DataGridViewTextBoxColumn8.HeaderText = "Product Name"
         DataGridViewTextBoxColumn8.MinimumWidth = 6
         DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        DataGridViewTextBoxColumn8.ReadOnly = True
         ' 
         ' Column7
         ' 
@@ -566,18 +1206,26 @@ Partial Class frmMainMenu
         Column7.HeaderText = "Unit Price"
         Column7.MinimumWidth = 6
         Column7.Name = "Column7"
+        Column7.ReadOnly = True
         ' 
-        ' categorytable
+        ' categorylistdg
         ' 
-        categorytable.BackgroundColor = Color.White
-        categorytable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        categorytable.Columns.AddRange(New DataGridViewColumn() {Column4, Column5, Column6})
-        categorytable.Location = New Point(42, 137)
-        categorytable.Name = "categorytable"
-        categorytable.RowHeadersVisible = False
-        categorytable.RowHeadersWidth = 51
-        categorytable.Size = New Size(600, 400)
-        categorytable.TabIndex = 2
+        categorylistdg.AllowUserToAddRows = False
+        categorylistdg.AllowUserToDeleteRows = False
+        categorylistdg.AllowUserToResizeRows = False
+        categorylistdg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        categorylistdg.BackgroundColor = Color.White
+        categorylistdg.ColumnHeadersHeight = 29
+        categorylistdg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        categorylistdg.Columns.AddRange(New DataGridViewColumn() {Column4, Column5, Column6})
+        categorylistdg.Location = New Point(42, 137)
+        categorylistdg.Name = "categorylistdg"
+        categorylistdg.RowHeadersVisible = False
+        categorylistdg.RowHeadersWidth = 51
+        categorylistdg.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        categorylistdg.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        categorylistdg.Size = New Size(600, 400)
+        categorylistdg.TabIndex = 2
         ' 
         ' Column4
         ' 
@@ -585,6 +1233,7 @@ Partial Class frmMainMenu
         Column4.HeaderText = "ID"
         Column4.MinimumWidth = 6
         Column4.Name = "Column4"
+        Column4.ReadOnly = True
         ' 
         ' Column5
         ' 
@@ -592,6 +1241,7 @@ Partial Class frmMainMenu
         Column5.HeaderText = "Category Name"
         Column5.MinimumWidth = 6
         Column5.Name = "Column5"
+        Column5.ReadOnly = True
         ' 
         ' Column6
         ' 
@@ -599,259 +1249,15 @@ Partial Class frmMainMenu
         Column6.HeaderText = "Description"
         Column6.MinimumWidth = 6
         Column6.Name = "Column6"
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.BackColor = Color.Black
-        Label5.Font = New Font("Gotham", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label5.ForeColor = Color.White
-        Label5.Location = New Point(750, 337)
-        Label5.Margin = New Padding(2)
-        Label5.Name = "Label5"
-        Label5.Padding = New Padding(94, 10, 94, 10)
-        Label5.Size = New Size(350, 43)
-        Label5.TabIndex = 9
-        Label5.Text = "Dili ko pa alam"
-        ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.BackColor = Color.Black
-        Label4.Font = New Font("Gotham", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label4.ForeColor = Color.White
-        Label4.Location = New Point(389, 337)
-        Label4.Margin = New Padding(2)
-        Label4.Name = "Label4"
-        Label4.Padding = New Padding(96, 10, 95, 10)
-        Label4.Size = New Size(350, 43)
-        Label4.TabIndex = 8
-        Label4.Text = "Soon to Expire"
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.BackColor = Color.Black
-        Label3.Font = New Font("Gotham", 11.999999F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label3.ForeColor = Color.White
-        Label3.Location = New Point(29, 337)
-        Label3.Margin = New Padding(2)
-        Label3.Name = "Label3"
-        Label3.Padding = New Padding(88, 10, 87, 10)
-        Label3.Size = New Size(350, 43)
-        Label3.TabIndex = 7
-        Label3.Text = "Low Stock Level"
-        ' 
-        ' DataGridView3
-        ' 
-        DataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView3.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn4, DataGridViewTextBoxColumn5, DataGridViewTextBoxColumn6})
-        DataGridView3.Location = New Point(750, 380)
-        DataGridView3.Name = "DataGridView3"
-        DataGridView3.RowHeadersVisible = False
-        DataGridView3.RowHeadersWidth = 51
-        DataGridView3.Size = New Size(350, 450)
-        DataGridView3.TabIndex = 6
-        ' 
-        ' DataGridViewTextBoxColumn4
-        ' 
-        DataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn4.FillWeight = 98.9899F
-        DataGridViewTextBoxColumn4.HeaderText = "ID"
-        DataGridViewTextBoxColumn4.MinimumWidth = 6
-        DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        ' 
-        ' DataGridViewTextBoxColumn5
-        ' 
-        DataGridViewTextBoxColumn5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn5.FillWeight = 101.264534F
-        DataGridViewTextBoxColumn5.HeaderText = "Product Name"
-        DataGridViewTextBoxColumn5.MinimumWidth = 6
-        DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        ' 
-        ' DataGridViewTextBoxColumn6
-        ' 
-        DataGridViewTextBoxColumn6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn6.FillWeight = 99.74557F
-        DataGridViewTextBoxColumn6.HeaderText = "Expiration Date"
-        DataGridViewTextBoxColumn6.MinimumWidth = 6
-        DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        ' 
-        ' DataGridView2
-        ' 
-        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView2.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn1, DataGridViewTextBoxColumn2, DataGridViewTextBoxColumn3})
-        DataGridView2.Location = New Point(389, 380)
-        DataGridView2.Name = "DataGridView2"
-        DataGridView2.RowHeadersVisible = False
-        DataGridView2.RowHeadersWidth = 51
-        DataGridView2.Size = New Size(350, 450)
-        DataGridView2.TabIndex = 5
-        ' 
-        ' DataGridViewTextBoxColumn1
-        ' 
-        DataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn1.FillWeight = 98.9899F
-        DataGridViewTextBoxColumn1.HeaderText = "ID"
-        DataGridViewTextBoxColumn1.MinimumWidth = 6
-        DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        ' 
-        ' DataGridViewTextBoxColumn2
-        ' 
-        DataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn2.FillWeight = 101.264534F
-        DataGridViewTextBoxColumn2.HeaderText = "Product Name"
-        DataGridViewTextBoxColumn2.MinimumWidth = 6
-        DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        ' 
-        ' DataGridViewTextBoxColumn3
-        ' 
-        DataGridViewTextBoxColumn3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn3.FillWeight = 99.74557F
-        DataGridViewTextBoxColumn3.HeaderText = "Expiration Date"
-        DataGridViewTextBoxColumn3.MinimumWidth = 6
-        DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3})
-        DataGridView1.Location = New Point(29, 380)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersVisible = False
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(350, 450)
-        DataGridView1.TabIndex = 4
-        ' 
-        ' Column1
-        ' 
-        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column1.FillWeight = 98.9899F
-        Column1.HeaderText = "ID"
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
-        ' 
-        ' Column2
-        ' 
-        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column2.FillWeight = 101.264534F
-        Column2.HeaderText = "Product Name"
-        Column2.MinimumWidth = 6
-        Column2.Name = "Column2"
-        ' 
-        ' Column3
-        ' 
-        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column3.FillWeight = 99.74557F
-        Column3.HeaderText = "Quantity In Stock"
-        Column3.MinimumWidth = 6
-        Column3.Name = "Column3"
-        ' 
-        ' Panel7
-        ' 
-        Panel7.BackColor = Color.FromArgb(CByte(48), CByte(76), CByte(153))
-        Panel7.Controls.Add(Label9)
-        Panel7.Location = New Point(850, 52)
-        Panel7.Name = "Panel7"
-        Panel7.Size = New Size(250, 250)
-        Panel7.TabIndex = 3
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label9.ForeColor = Color.White
-        Label9.Location = New Point(59, 34)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(137, 26)
-        Label9.TabIndex = 3
-        Label9.Text = "Total Staff"
-        ' 
-        ' Panel6
-        ' 
-        Panel6.BackColor = Color.FromArgb(CByte(139), CByte(47), CByte(153))
-        Panel6.Controls.Add(Label8)
-        Panel6.Location = New Point(578, 52)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(250, 250)
-        Panel6.TabIndex = 2
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label8.ForeColor = Color.White
-        Label8.Location = New Point(19, 34)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(215, 26)
-        Label8.TabIndex = 2
-        Label8.Text = "Total Menu Items"
-        ' 
-        ' Panel5
-        ' 
-        Panel5.BackColor = Color.FromArgb(CByte(237), CByte(152), CByte(84))
-        Panel5.Controls.Add(Label7)
-        Panel5.Location = New Point(304, 52)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(250, 250)
-        Panel5.TabIndex = 1
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label7.ForeColor = Color.White
-        Label7.Location = New Point(34, 34)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(185, 26)
-        Label7.TabIndex = 1
-        Label7.Text = "Total Products"
-        ' 
-        ' Panel4
-        ' 
-        Panel4.BackColor = Color.FromArgb(CByte(72), CByte(163), CByte(165))
-        Panel4.Controls.Add(Label6)
-        Panel4.Location = New Point(29, 52)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(250, 250)
-        Panel4.TabIndex = 0
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label6.ForeColor = Color.White
-        Label6.Location = New Point(23, 34)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(209, 26)
-        Label6.TabIndex = 0
-        Label6.Text = "Total Categories"
-        ' 
-        ' PictureBox2
-        ' 
-        PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
-        PictureBox2.Location = New Point(338, 115)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(500, 500)
-        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox2.TabIndex = 1
-        PictureBox2.TabStop = False
-        ' 
-        ' welcomelabel
-        ' 
-        welcomelabel.AutoSize = True
-        welcomelabel.Font = New Font("Gotham", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        welcomelabel.Location = New Point(176, 648)
-        welcomelabel.Name = "welcomelabel"
-        welcomelabel.Size = New Size(860, 45)
-        welcomelabel.TabIndex = 0
-        welcomelabel.Text = "Inventory Database Management System"
+        Column6.ReadOnly = True
         ' 
         ' frmMainMenu
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1482, 953)
+        Controls.Add(categorypanel)
+        Controls.Add(dashboardpanel)
         Controls.Add(Panel3)
         Controls.Add(Panel1)
         Controls.Add(welcomepanel)
@@ -867,14 +1273,9 @@ Partial Class frmMainMenu
         Panel3.PerformLayout()
         welcomepanel.ResumeLayout(False)
         welcomepanel.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         dashboardpanel.ResumeLayout(False)
         dashboardpanel.PerformLayout()
-        categorypanel.ResumeLayout(False)
-        categorypanel.PerformLayout()
-        GroupBox2.ResumeLayout(False)
-        GroupBox2.PerformLayout()
-        CType(productsincategorytable, ComponentModel.ISupportInitialize).EndInit()
-        CType(categorytable, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView3, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
@@ -886,7 +1287,17 @@ Partial Class frmMainMenu
         Panel5.PerformLayout()
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        categorypanel.ResumeLayout(False)
+        categorypanel.PerformLayout()
+        productpanel1.ResumeLayout(False)
+        productpanel1.PerformLayout()
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
+        CType(DataGridView4, ComponentModel.ISupportInitialize).EndInit()
+        GroupBox2.ResumeLayout(False)
+        GroupBox2.PerformLayout()
+        CType(productsincategorytable, ComponentModel.ISupportInitialize).EndInit()
+        CType(categorylistdg, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -909,9 +1320,6 @@ Partial Class frmMainMenu
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Panel6 As Panel
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents DataGridView3 As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
@@ -934,7 +1342,7 @@ Partial Class frmMainMenu
     Friend WithEvents categorypanel As Panel
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents categorytable As DataGridView
+    Friend WithEvents categorylistdg As DataGridView
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
@@ -951,11 +1359,43 @@ Partial Class frmMainMenu
     Friend WithEvents Label15 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label16 As Label
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents category_updatebtn As Button
+    Friend WithEvents category_deletebtn As Button
     Friend WithEvents categorydesctxt As TextBox
     Friend WithEvents searchbtn As Button
     Friend WithEvents Label11 As Label
     Friend WithEvents searchbox As TextBox
-    Friend WithEvents productpanel As Panel
+    Friend WithEvents productpanel1 As Panel
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents DataGridView4 As DataGridView
+    Friend WithEvents product_updatebtn As Button
+    Friend WithEvents product_deletebutton As Button
+    Friend WithEvents Label19 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Label20 As Label
+    Friend WithEvents product_addbtn As Button
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Label24 As Label
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Label23 As Label
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label26 As Label
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label25 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
 End Class
