@@ -65,39 +65,7 @@ Partial Class frmMainMenu
         Panel4 = New Panel()
         Label6 = New Label()
         categorypanel = New Panel()
-        productpanel1 = New Panel()
-        GroupBox1 = New GroupBox()
-        TextBox6 = New TextBox()
-        Label26 = New Label()
-        DateTimePicker2 = New DateTimePicker()
-        Label25 = New Label()
-        DateTimePicker1 = New DateTimePicker()
-        Label24 = New Label()
-        TextBox5 = New TextBox()
-        Label23 = New Label()
-        TextBox4 = New TextBox()
-        Label22 = New Label()
-        product_updatebtn = New Button()
-        product_deletebutton = New Button()
-        TextBox1 = New TextBox()
-        Label19 = New Label()
-        TextBox3 = New TextBox()
-        Label20 = New Label()
-        product_addbtn = New Button()
-        Label21 = New Label()
-        Label18 = New Label()
-        DataGridView4 = New DataGridView()
-        Column8 = New DataGridViewTextBoxColumn()
-        Column9 = New DataGridViewTextBoxColumn()
-        Column10 = New DataGridViewTextBoxColumn()
-        Column11 = New DataGridViewTextBoxColumn()
-        Column12 = New DataGridViewTextBoxColumn()
-        Column13 = New DataGridViewTextBoxColumn()
-        Column14 = New DataGridViewTextBoxColumn()
-        Label17 = New Label()
-        Button3 = New Button()
-        TextBox2 = New TextBox()
-        searchbtn = New Button()
+        category_searchbtn = New Button()
         searchbox = New TextBox()
         Label11 = New Label()
         GroupBox2 = New GroupBox()
@@ -119,6 +87,38 @@ Partial Class frmMainMenu
         Column4 = New DataGridViewTextBoxColumn()
         Column5 = New DataGridViewTextBoxColumn()
         Column6 = New DataGridViewTextBoxColumn()
+        productpanel1 = New Panel()
+        GroupBox1 = New GroupBox()
+        TextBox6 = New TextBox()
+        Label26 = New Label()
+        DateTimePicker2 = New DateTimePicker()
+        Label25 = New Label()
+        DateTimePicker1 = New DateTimePicker()
+        Label24 = New Label()
+        TextBox5 = New TextBox()
+        Label23 = New Label()
+        TextBox4 = New TextBox()
+        Label22 = New Label()
+        product_updatebtn = New Button()
+        product_deletebutton = New Button()
+        TextBox1 = New TextBox()
+        Label19 = New Label()
+        TextBox3 = New TextBox()
+        Label20 = New Label()
+        product_addbtn = New Button()
+        Label21 = New Label()
+        Label18 = New Label()
+        productlistdg = New DataGridView()
+        Column8 = New DataGridViewTextBoxColumn()
+        Column9 = New DataGridViewTextBoxColumn()
+        Column10 = New DataGridViewTextBoxColumn()
+        Column11 = New DataGridViewTextBoxColumn()
+        Column12 = New DataGridViewTextBoxColumn()
+        Column13 = New DataGridViewTextBoxColumn()
+        Column14 = New DataGridViewTextBoxColumn()
+        Label17 = New Label()
+        product_searchbtn = New Button()
+        TextBox2 = New TextBox()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
@@ -133,12 +133,12 @@ Partial Class frmMainMenu
         Panel5.SuspendLayout()
         Panel4.SuspendLayout()
         categorypanel.SuspendLayout()
-        productpanel1.SuspendLayout()
-        GroupBox1.SuspendLayout()
-        CType(DataGridView4, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox2.SuspendLayout()
         CType(productsincategorytable, ComponentModel.ISupportInitialize).BeginInit()
         CType(categorylistdg, ComponentModel.ISupportInitialize).BeginInit()
+        productpanel1.SuspendLayout()
+        GroupBox1.SuspendLayout()
+        CType(productlistdg, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -639,8 +639,7 @@ Partial Class frmMainMenu
         ' categorypanel
         ' 
         categorypanel.BackColor = SystemColors.Control
-        categorypanel.Controls.Add(productpanel1)
-        categorypanel.Controls.Add(searchbtn)
+        categorypanel.Controls.Add(category_searchbtn)
         categorypanel.Controls.Add(searchbox)
         categorypanel.Controls.Add(Label11)
         categorypanel.Controls.Add(GroupBox2)
@@ -653,15 +652,268 @@ Partial Class frmMainMenu
         categorypanel.Size = New Size(1130, 883)
         categorypanel.TabIndex = 3
         ' 
+        ' category_searchbtn
+        ' 
+        category_searchbtn.BackColor = SystemColors.Window
+        category_searchbtn.FlatAppearance.BorderSize = 0
+        category_searchbtn.FlatStyle = FlatStyle.Flat
+        category_searchbtn.Image = CType(resources.GetObject("category_searchbtn.Image"), Image)
+        category_searchbtn.ImageAlign = ContentAlignment.MiddleRight
+        category_searchbtn.Location = New Point(1057, 38)
+        category_searchbtn.Name = "category_searchbtn"
+        category_searchbtn.Size = New Size(25, 25)
+        category_searchbtn.TabIndex = 7
+        category_searchbtn.TextImageRelation = TextImageRelation.TextBeforeImage
+        category_searchbtn.UseVisualStyleBackColor = False
+        ' 
+        ' searchbox
+        ' 
+        searchbox.BorderStyle = BorderStyle.FixedSingle
+        searchbox.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        searchbox.ForeColor = Color.DimGray
+        searchbox.Location = New Point(497, 35)
+        searchbox.Name = "searchbox"
+        searchbox.PlaceholderText = "Search"
+        searchbox.Size = New Size(600, 29)
+        searchbox.TabIndex = 9
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Font = New Font("Gotham", 22.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label11.ForeColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        Label11.Location = New Point(42, 22)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(352, 42)
+        Label11.TabIndex = 8
+        Label11.Text = "Product Category"
+        ' 
+        ' GroupBox2
+        ' 
+        GroupBox2.Controls.Add(category_updatebtn)
+        GroupBox2.Controls.Add(category_deletebtn)
+        GroupBox2.Controls.Add(categorydesctxt)
+        GroupBox2.Controls.Add(Label16)
+        GroupBox2.Controls.Add(categorynametxt)
+        GroupBox2.Controls.Add(Label15)
+        GroupBox2.Controls.Add(category_addbtn)
+        GroupBox2.Controls.Add(Label14)
+        GroupBox2.FlatStyle = FlatStyle.Flat
+        GroupBox2.Location = New Point(42, 559)
+        GroupBox2.Name = "GroupBox2"
+        GroupBox2.Size = New Size(1055, 278)
+        GroupBox2.TabIndex = 6
+        GroupBox2.TabStop = False
+        ' 
+        ' category_updatebtn
+        ' 
+        category_updatebtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        category_updatebtn.FlatAppearance.BorderSize = 0
+        category_updatebtn.FlatStyle = FlatStyle.Flat
+        category_updatebtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        category_updatebtn.ForeColor = Color.White
+        category_updatebtn.Location = New Point(409, 212)
+        category_updatebtn.Name = "category_updatebtn"
+        category_updatebtn.Size = New Size(220, 40)
+        category_updatebtn.TabIndex = 7
+        category_updatebtn.Text = "UPDATE"
+        category_updatebtn.UseVisualStyleBackColor = False
+        ' 
+        ' category_deletebtn
+        ' 
+        category_deletebtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        category_deletebtn.FlatAppearance.BorderSize = 0
+        category_deletebtn.FlatStyle = FlatStyle.Flat
+        category_deletebtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        category_deletebtn.ForeColor = Color.White
+        category_deletebtn.Location = New Point(649, 212)
+        category_deletebtn.Name = "category_deletebtn"
+        category_deletebtn.Size = New Size(220, 40)
+        category_deletebtn.TabIndex = 6
+        category_deletebtn.Text = "DELETE"
+        category_deletebtn.UseVisualStyleBackColor = False
+        ' 
+        ' categorydesctxt
+        ' 
+        categorydesctxt.BackColor = Color.WhiteSmoke
+        categorydesctxt.BorderStyle = BorderStyle.FixedSingle
+        categorydesctxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        categorydesctxt.Location = New Point(369, 145)
+        categorydesctxt.Name = "categorydesctxt"
+        categorydesctxt.Size = New Size(500, 29)
+        categorydesctxt.TabIndex = 5
+        ' 
+        ' Label16
+        ' 
+        Label16.AutoSize = True
+        Label16.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label16.Location = New Point(170, 151)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(123, 23)
+        Label16.TabIndex = 4
+        Label16.Text = "Description"
+        ' 
+        ' categorynametxt
+        ' 
+        categorynametxt.BackColor = Color.WhiteSmoke
+        categorynametxt.BorderStyle = BorderStyle.FixedSingle
+        categorynametxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        categorynametxt.Location = New Point(369, 96)
+        categorynametxt.Name = "categorynametxt"
+        categorynametxt.Size = New Size(500, 29)
+        categorynametxt.TabIndex = 3
+        ' 
+        ' Label15
+        ' 
+        Label15.AutoSize = True
+        Label15.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label15.Location = New Point(170, 102)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(168, 23)
+        Label15.TabIndex = 2
+        Label15.Text = "Category Name"
+        ' 
+        ' category_addbtn
+        ' 
+        category_addbtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        category_addbtn.FlatAppearance.BorderSize = 0
+        category_addbtn.FlatStyle = FlatStyle.Flat
+        category_addbtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        category_addbtn.ForeColor = Color.White
+        category_addbtn.Location = New Point(170, 212)
+        category_addbtn.Name = "category_addbtn"
+        category_addbtn.Size = New Size(220, 40)
+        category_addbtn.TabIndex = 1
+        category_addbtn.Text = "ADD"
+        category_addbtn.UseVisualStyleBackColor = False
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Font = New Font("Gotham", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label14.Location = New Point(33, 30)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(267, 32)
+        Label14.TabIndex = 0
+        Label14.Text = "Manage Category"
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.BackColor = Color.Black
+        Label13.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label13.ForeColor = Color.White
+        Label13.Location = New Point(697, 101)
+        Label13.Name = "Label13"
+        Label13.Padding = New Padding(69, 5, 69, 5)
+        Label13.Size = New Size(400, 36)
+        Label13.TabIndex = 5
+        Label13.Text = "Products in Category"
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.BackColor = Color.Black
+        Label12.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label12.ForeColor = Color.White
+        Label12.Location = New Point(42, 101)
+        Label12.Name = "Label12"
+        Label12.Padding = New Padding(164, 5, 164, 5)
+        Label12.Size = New Size(600, 36)
+        Label12.TabIndex = 4
+        Label12.Text = "Product Category List"
+        ' 
+        ' productsincategorytable
+        ' 
+        productsincategorytable.AllowUserToAddRows = False
+        productsincategorytable.AllowUserToDeleteRows = False
+        productsincategorytable.BackgroundColor = Color.White
+        productsincategorytable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        productsincategorytable.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn7, DataGridViewTextBoxColumn8, Column7})
+        productsincategorytable.Location = New Point(697, 137)
+        productsincategorytable.Name = "productsincategorytable"
+        productsincategorytable.ReadOnly = True
+        productsincategorytable.RowHeadersVisible = False
+        productsincategorytable.RowHeadersWidth = 51
+        productsincategorytable.Size = New Size(400, 400)
+        productsincategorytable.TabIndex = 3
+        ' 
+        ' DataGridViewTextBoxColumn7
+        ' 
+        DataGridViewTextBoxColumn7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn7.HeaderText = "ID"
+        DataGridViewTextBoxColumn7.MinimumWidth = 6
+        DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        DataGridViewTextBoxColumn7.ReadOnly = True
+        ' 
+        ' DataGridViewTextBoxColumn8
+        ' 
+        DataGridViewTextBoxColumn8.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn8.HeaderText = "Product Name"
+        DataGridViewTextBoxColumn8.MinimumWidth = 6
+        DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        DataGridViewTextBoxColumn8.ReadOnly = True
+        ' 
+        ' Column7
+        ' 
+        Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column7.HeaderText = "Unit Price"
+        Column7.MinimumWidth = 6
+        Column7.Name = "Column7"
+        Column7.ReadOnly = True
+        ' 
+        ' categorylistdg
+        ' 
+        categorylistdg.AllowUserToAddRows = False
+        categorylistdg.AllowUserToDeleteRows = False
+        categorylistdg.AllowUserToResizeRows = False
+        categorylistdg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        categorylistdg.BackgroundColor = Color.White
+        categorylistdg.ColumnHeadersHeight = 29
+        categorylistdg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        categorylistdg.Columns.AddRange(New DataGridViewColumn() {Column4, Column5, Column6})
+        categorylistdg.Location = New Point(42, 137)
+        categorylistdg.Name = "categorylistdg"
+        categorylistdg.RowHeadersVisible = False
+        categorylistdg.RowHeadersWidth = 51
+        categorylistdg.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        categorylistdg.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        categorylistdg.Size = New Size(600, 400)
+        categorylistdg.TabIndex = 0
+        ' 
+        ' Column4
+        ' 
+        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column4.HeaderText = "ID"
+        Column4.MinimumWidth = 6
+        Column4.Name = "Column4"
+        Column4.ReadOnly = True
+        ' 
+        ' Column5
+        ' 
+        Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column5.HeaderText = "Category Name"
+        Column5.MinimumWidth = 6
+        Column5.Name = "Column5"
+        Column5.ReadOnly = True
+        ' 
+        ' Column6
+        ' 
+        Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column6.HeaderText = "Description"
+        Column6.MinimumWidth = 6
+        Column6.Name = "Column6"
+        Column6.ReadOnly = True
+        ' 
         ' productpanel1
         ' 
         productpanel1.Controls.Add(GroupBox1)
         productpanel1.Controls.Add(Label18)
-        productpanel1.Controls.Add(DataGridView4)
+        productpanel1.Controls.Add(productlistdg)
         productpanel1.Controls.Add(Label17)
-        productpanel1.Controls.Add(Button3)
+        productpanel1.Controls.Add(product_searchbtn)
         productpanel1.Controls.Add(TextBox2)
-        productpanel1.Location = New Point(569, 3)
+        productpanel1.Location = New Point(356, 76)
         productpanel1.Name = "productpanel1"
         productpanel1.Size = New Size(1120, 883)
         productpanel1.TabIndex = 4
@@ -892,27 +1144,29 @@ Partial Class frmMainMenu
         Label18.TabIndex = 14
         Label18.Text = "Product List"
         ' 
-        ' DataGridView4
+        ' productlistdg
         ' 
-        DataGridView4.AllowUserToAddRows = False
-        DataGridView4.AllowUserToDeleteRows = False
-        DataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView4.Columns.AddRange(New DataGridViewColumn() {Column8, Column9, Column10, Column11, Column12, Column13, Column14})
-        DataGridView4.Location = New Point(42, 141)
-        DataGridView4.Name = "DataGridView4"
-        DataGridView4.ReadOnly = True
-        DataGridView4.RowHeadersVisible = False
-        DataGridView4.RowHeadersWidth = 51
-        DataGridView4.Size = New Size(1055, 300)
-        DataGridView4.TabIndex = 13
+        productlistdg.AllowUserToAddRows = False
+        productlistdg.AllowUserToDeleteRows = False
+        productlistdg.BackgroundColor = Color.White
+        productlistdg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        productlistdg.Columns.AddRange(New DataGridViewColumn() {Column8, Column9, Column10, Column11, Column12, Column13, Column14})
+        productlistdg.Location = New Point(42, 141)
+        productlistdg.Name = "productlistdg"
+        productlistdg.ReadOnly = True
+        productlistdg.RowHeadersVisible = False
+        productlistdg.RowHeadersWidth = 51
+        productlistdg.Size = New Size(1055, 300)
+        productlistdg.TabIndex = 13
         ' 
         ' Column8
         ' 
-        Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Column8.HeaderText = "ID"
         Column8.MinimumWidth = 6
         Column8.Name = "Column8"
         Column8.ReadOnly = True
+        Column8.Width = 53
         ' 
         ' Column9
         ' 
@@ -948,19 +1202,21 @@ Partial Class frmMainMenu
         ' 
         ' Column13
         ' 
-        Column13.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column13.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Column13.HeaderText = "Restocked Date"
         Column13.MinimumWidth = 6
         Column13.Name = "Column13"
         Column13.ReadOnly = True
+        Column13.Width = 130
         ' 
         ' Column14
         ' 
-        Column14.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column14.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Column14.HeaderText = "Expiration Date"
         Column14.MinimumWidth = 6
         Column14.Name = "Column14"
         Column14.ReadOnly = True
+        Column14.Width = 129
         ' 
         ' Label17
         ' 
@@ -973,19 +1229,19 @@ Partial Class frmMainMenu
         Label17.TabIndex = 12
         Label17.Text = "Product"
         ' 
-        ' Button3
+        ' product_searchbtn
         ' 
-        Button3.BackColor = SystemColors.Window
-        Button3.FlatAppearance.BorderSize = 0
-        Button3.FlatStyle = FlatStyle.Flat
-        Button3.Image = CType(resources.GetObject("Button3.Image"), Image)
-        Button3.ImageAlign = ContentAlignment.MiddleRight
-        Button3.Location = New Point(1056, 40)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(25, 25)
-        Button3.TabIndex = 10
-        Button3.TextImageRelation = TextImageRelation.TextBeforeImage
-        Button3.UseVisualStyleBackColor = False
+        product_searchbtn.BackColor = SystemColors.Window
+        product_searchbtn.FlatAppearance.BorderSize = 0
+        product_searchbtn.FlatStyle = FlatStyle.Flat
+        product_searchbtn.Image = CType(resources.GetObject("product_searchbtn.Image"), Image)
+        product_searchbtn.ImageAlign = ContentAlignment.MiddleRight
+        product_searchbtn.Location = New Point(1056, 40)
+        product_searchbtn.Name = "product_searchbtn"
+        product_searchbtn.Size = New Size(25, 25)
+        product_searchbtn.TabIndex = 10
+        product_searchbtn.TextImageRelation = TextImageRelation.TextBeforeImage
+        product_searchbtn.UseVisualStyleBackColor = False
         ' 
         ' TextBox2
         ' 
@@ -998,264 +1254,12 @@ Partial Class frmMainMenu
         TextBox2.Size = New Size(600, 29)
         TextBox2.TabIndex = 11
         ' 
-        ' searchbtn
-        ' 
-        searchbtn.BackColor = SystemColors.Window
-        searchbtn.FlatAppearance.BorderSize = 0
-        searchbtn.FlatStyle = FlatStyle.Flat
-        searchbtn.Image = CType(resources.GetObject("searchbtn.Image"), Image)
-        searchbtn.ImageAlign = ContentAlignment.MiddleRight
-        searchbtn.Location = New Point(1057, 38)
-        searchbtn.Name = "searchbtn"
-        searchbtn.Size = New Size(25, 25)
-        searchbtn.TabIndex = 7
-        searchbtn.TextImageRelation = TextImageRelation.TextBeforeImage
-        searchbtn.UseVisualStyleBackColor = False
-        ' 
-        ' searchbox
-        ' 
-        searchbox.BorderStyle = BorderStyle.FixedSingle
-        searchbox.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        searchbox.ForeColor = Color.DimGray
-        searchbox.Location = New Point(497, 35)
-        searchbox.Name = "searchbox"
-        searchbox.PlaceholderText = "Search"
-        searchbox.Size = New Size(600, 29)
-        searchbox.TabIndex = 9
-        ' 
-        ' Label11
-        ' 
-        Label11.AutoSize = True
-        Label11.Font = New Font("Gotham", 22.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label11.ForeColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
-        Label11.Location = New Point(42, 22)
-        Label11.Name = "Label11"
-        Label11.Size = New Size(352, 42)
-        Label11.TabIndex = 8
-        Label11.Text = "Product Category"
-        ' 
-        ' GroupBox2
-        ' 
-        GroupBox2.Controls.Add(category_updatebtn)
-        GroupBox2.Controls.Add(category_deletebtn)
-        GroupBox2.Controls.Add(categorydesctxt)
-        GroupBox2.Controls.Add(Label16)
-        GroupBox2.Controls.Add(categorynametxt)
-        GroupBox2.Controls.Add(Label15)
-        GroupBox2.Controls.Add(category_addbtn)
-        GroupBox2.Controls.Add(Label14)
-        GroupBox2.FlatStyle = FlatStyle.Flat
-        GroupBox2.Location = New Point(42, 559)
-        GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(1055, 278)
-        GroupBox2.TabIndex = 6
-        GroupBox2.TabStop = False
-        ' 
-        ' category_updatebtn
-        ' 
-        category_updatebtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
-        category_updatebtn.FlatAppearance.BorderSize = 0
-        category_updatebtn.FlatStyle = FlatStyle.Flat
-        category_updatebtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        category_updatebtn.ForeColor = Color.White
-        category_updatebtn.Location = New Point(409, 212)
-        category_updatebtn.Name = "category_updatebtn"
-        category_updatebtn.Size = New Size(220, 40)
-        category_updatebtn.TabIndex = 7
-        category_updatebtn.Text = "UPDATE"
-        category_updatebtn.UseVisualStyleBackColor = False
-        ' 
-        ' category_deletebtn
-        ' 
-        category_deletebtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
-        category_deletebtn.FlatAppearance.BorderSize = 0
-        category_deletebtn.FlatStyle = FlatStyle.Flat
-        category_deletebtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        category_deletebtn.ForeColor = Color.White
-        category_deletebtn.Location = New Point(649, 212)
-        category_deletebtn.Name = "category_deletebtn"
-        category_deletebtn.Size = New Size(220, 40)
-        category_deletebtn.TabIndex = 6
-        category_deletebtn.Text = "DELETE"
-        category_deletebtn.UseVisualStyleBackColor = False
-        ' 
-        ' categorydesctxt
-        ' 
-        categorydesctxt.BackColor = Color.WhiteSmoke
-        categorydesctxt.BorderStyle = BorderStyle.FixedSingle
-        categorydesctxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        categorydesctxt.Location = New Point(369, 145)
-        categorydesctxt.Name = "categorydesctxt"
-        categorydesctxt.Size = New Size(500, 29)
-        categorydesctxt.TabIndex = 5
-        ' 
-        ' Label16
-        ' 
-        Label16.AutoSize = True
-        Label16.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label16.Location = New Point(170, 151)
-        Label16.Name = "Label16"
-        Label16.Size = New Size(123, 23)
-        Label16.TabIndex = 4
-        Label16.Text = "Description"
-        ' 
-        ' categorynametxt
-        ' 
-        categorynametxt.BackColor = Color.WhiteSmoke
-        categorynametxt.BorderStyle = BorderStyle.FixedSingle
-        categorynametxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        categorynametxt.Location = New Point(369, 96)
-        categorynametxt.Name = "categorynametxt"
-        categorynametxt.Size = New Size(500, 29)
-        categorynametxt.TabIndex = 3
-        ' 
-        ' Label15
-        ' 
-        Label15.AutoSize = True
-        Label15.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Label15.Location = New Point(170, 102)
-        Label15.Name = "Label15"
-        Label15.Size = New Size(168, 23)
-        Label15.TabIndex = 2
-        Label15.Text = "Category Name"
-        ' 
-        ' category_addbtn
-        ' 
-        category_addbtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
-        category_addbtn.FlatAppearance.BorderSize = 0
-        category_addbtn.FlatStyle = FlatStyle.Flat
-        category_addbtn.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        category_addbtn.ForeColor = Color.White
-        category_addbtn.Location = New Point(170, 212)
-        category_addbtn.Name = "category_addbtn"
-        category_addbtn.Size = New Size(220, 40)
-        category_addbtn.TabIndex = 1
-        category_addbtn.Text = "ADD"
-        category_addbtn.UseVisualStyleBackColor = False
-        ' 
-        ' Label14
-        ' 
-        Label14.AutoSize = True
-        Label14.Font = New Font("Gotham", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label14.Location = New Point(33, 30)
-        Label14.Name = "Label14"
-        Label14.Size = New Size(267, 32)
-        Label14.TabIndex = 0
-        Label14.Text = "Manage Category"
-        ' 
-        ' Label13
-        ' 
-        Label13.AutoSize = True
-        Label13.BackColor = Color.Black
-        Label13.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label13.ForeColor = Color.White
-        Label13.Location = New Point(697, 101)
-        Label13.Name = "Label13"
-        Label13.Padding = New Padding(69, 5, 69, 5)
-        Label13.Size = New Size(400, 36)
-        Label13.TabIndex = 5
-        Label13.Text = "Products in Category"
-        ' 
-        ' Label12
-        ' 
-        Label12.AutoSize = True
-        Label12.BackColor = Color.Black
-        Label12.Font = New Font("Gotham", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label12.ForeColor = Color.White
-        Label12.Location = New Point(42, 101)
-        Label12.Name = "Label12"
-        Label12.Padding = New Padding(164, 5, 164, 5)
-        Label12.Size = New Size(600, 36)
-        Label12.TabIndex = 4
-        Label12.Text = "Product Category List"
-        ' 
-        ' productsincategorytable
-        ' 
-        productsincategorytable.AllowUserToAddRows = False
-        productsincategorytable.AllowUserToDeleteRows = False
-        productsincategorytable.BackgroundColor = Color.White
-        productsincategorytable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        productsincategorytable.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn7, DataGridViewTextBoxColumn8, Column7})
-        productsincategorytable.Location = New Point(697, 137)
-        productsincategorytable.Name = "productsincategorytable"
-        productsincategorytable.ReadOnly = True
-        productsincategorytable.RowHeadersVisible = False
-        productsincategorytable.RowHeadersWidth = 51
-        productsincategorytable.Size = New Size(400, 400)
-        productsincategorytable.TabIndex = 3
-        ' 
-        ' DataGridViewTextBoxColumn7
-        ' 
-        DataGridViewTextBoxColumn7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn7.HeaderText = "ID"
-        DataGridViewTextBoxColumn7.MinimumWidth = 6
-        DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        DataGridViewTextBoxColumn7.ReadOnly = True
-        ' 
-        ' DataGridViewTextBoxColumn8
-        ' 
-        DataGridViewTextBoxColumn8.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewTextBoxColumn8.HeaderText = "Product Name"
-        DataGridViewTextBoxColumn8.MinimumWidth = 6
-        DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        DataGridViewTextBoxColumn8.ReadOnly = True
-        ' 
-        ' Column7
-        ' 
-        Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column7.HeaderText = "Unit Price"
-        Column7.MinimumWidth = 6
-        Column7.Name = "Column7"
-        Column7.ReadOnly = True
-        ' 
-        ' categorylistdg
-        ' 
-        categorylistdg.AllowUserToAddRows = False
-        categorylistdg.AllowUserToDeleteRows = False
-        categorylistdg.AllowUserToResizeRows = False
-        categorylistdg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        categorylistdg.BackgroundColor = Color.White
-        categorylistdg.ColumnHeadersHeight = 29
-        categorylistdg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        categorylistdg.Columns.AddRange(New DataGridViewColumn() {Column4, Column5, Column6})
-        categorylistdg.Location = New Point(42, 137)
-        categorylistdg.Name = "categorylistdg"
-        categorylistdg.RowHeadersVisible = False
-        categorylistdg.RowHeadersWidth = 51
-        categorylistdg.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        categorylistdg.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        categorylistdg.Size = New Size(600, 400)
-        categorylistdg.TabIndex = 2
-        ' 
-        ' Column4
-        ' 
-        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column4.HeaderText = "ID"
-        Column4.MinimumWidth = 6
-        Column4.Name = "Column4"
-        Column4.ReadOnly = True
-        ' 
-        ' Column5
-        ' 
-        Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column5.HeaderText = "Category Name"
-        Column5.MinimumWidth = 6
-        Column5.Name = "Column5"
-        Column5.ReadOnly = True
-        ' 
-        ' Column6
-        ' 
-        Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column6.HeaderText = "Description"
-        Column6.MinimumWidth = 6
-        Column6.Name = "Column6"
-        Column6.ReadOnly = True
-        ' 
         ' frmMainMenu
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1482, 953)
+        Controls.Add(productpanel1)
         Controls.Add(categorypanel)
         Controls.Add(dashboardpanel)
         Controls.Add(Panel3)
@@ -1289,15 +1293,15 @@ Partial Class frmMainMenu
         Panel4.PerformLayout()
         categorypanel.ResumeLayout(False)
         categorypanel.PerformLayout()
-        productpanel1.ResumeLayout(False)
-        productpanel1.PerformLayout()
-        GroupBox1.ResumeLayout(False)
-        GroupBox1.PerformLayout()
-        CType(DataGridView4, ComponentModel.ISupportInitialize).EndInit()
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()
         CType(productsincategorytable, ComponentModel.ISupportInitialize).EndInit()
         CType(categorylistdg, ComponentModel.ISupportInitialize).EndInit()
+        productpanel1.ResumeLayout(False)
+        productpanel1.PerformLayout()
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
+        CType(productlistdg, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -1362,14 +1366,14 @@ Partial Class frmMainMenu
     Friend WithEvents category_updatebtn As Button
     Friend WithEvents category_deletebtn As Button
     Friend WithEvents categorydesctxt As TextBox
-    Friend WithEvents searchbtn As Button
+    Friend WithEvents category_searchbtn As Button
     Friend WithEvents Label11 As Label
     Friend WithEvents searchbox As TextBox
     Friend WithEvents productpanel1 As Panel
     Friend WithEvents Label17 As Label
-    Friend WithEvents Button3 As Button
+    Friend WithEvents product_searchbtn As Button
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents DataGridView4 As DataGridView
+    Friend WithEvents productlistdg As DataGridView
     Friend WithEvents product_updatebtn As Button
     Friend WithEvents product_deletebutton As Button
     Friend WithEvents Label19 As Label
@@ -1378,13 +1382,6 @@ Partial Class frmMainMenu
     Friend WithEvents product_addbtn As Button
     Friend WithEvents Label21 As Label
     Friend WithEvents Label18 As Label
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
     Friend WithEvents Label24 As Label
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents Label23 As Label
@@ -1398,4 +1395,11 @@ Partial Class frmMainMenu
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
 End Class
