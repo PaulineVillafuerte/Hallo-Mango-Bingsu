@@ -79,7 +79,7 @@ Partial Class frmMainMenu
         Label14 = New Label()
         Label13 = New Label()
         Label12 = New Label()
-        productsincategorytable = New DataGridView()
+        productincategorydg = New DataGridView()
         DataGridViewTextBoxColumn7 = New DataGridViewTextBoxColumn()
         DataGridViewTextBoxColumn8 = New DataGridViewTextBoxColumn()
         Column7 = New DataGridViewTextBoxColumn()
@@ -110,6 +110,7 @@ Partial Class frmMainMenu
         Label18 = New Label()
         productlistdg = New DataGridView()
         Column8 = New DataGridViewTextBoxColumn()
+        Column15 = New DataGridViewTextBoxColumn()
         Column9 = New DataGridViewTextBoxColumn()
         Column10 = New DataGridViewTextBoxColumn()
         Column11 = New DataGridViewTextBoxColumn()
@@ -118,7 +119,7 @@ Partial Class frmMainMenu
         Column14 = New DataGridViewTextBoxColumn()
         Label17 = New Label()
         product_searchbtn = New Button()
-        TextBox2 = New TextBox()
+        productsearchtxt = New TextBox()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
@@ -134,7 +135,7 @@ Partial Class frmMainMenu
         Panel4.SuspendLayout()
         categorypanel.SuspendLayout()
         GroupBox2.SuspendLayout()
-        CType(productsincategorytable, ComponentModel.ISupportInitialize).BeginInit()
+        CType(productincategorydg, ComponentModel.ISupportInitialize).BeginInit()
         CType(categorylistdg, ComponentModel.ISupportInitialize).BeginInit()
         productpanel1.SuspendLayout()
         GroupBox1.SuspendLayout()
@@ -645,7 +646,7 @@ Partial Class frmMainMenu
         categorypanel.Controls.Add(GroupBox2)
         categorypanel.Controls.Add(Label13)
         categorypanel.Controls.Add(Label12)
-        categorypanel.Controls.Add(productsincategorytable)
+        categorypanel.Controls.Add(productincategorydg)
         categorypanel.Controls.Add(categorylistdg)
         categorypanel.Location = New Point(356, 76)
         categorypanel.Name = "categorypanel"
@@ -823,28 +824,29 @@ Partial Class frmMainMenu
         Label12.TabIndex = 4
         Label12.Text = "Product Category List"
         ' 
-        ' productsincategorytable
+        ' productincategorydg
         ' 
-        productsincategorytable.AllowUserToAddRows = False
-        productsincategorytable.AllowUserToDeleteRows = False
-        productsincategorytable.BackgroundColor = Color.White
-        productsincategorytable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        productsincategorytable.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn7, DataGridViewTextBoxColumn8, Column7})
-        productsincategorytable.Location = New Point(697, 137)
-        productsincategorytable.Name = "productsincategorytable"
-        productsincategorytable.ReadOnly = True
-        productsincategorytable.RowHeadersVisible = False
-        productsincategorytable.RowHeadersWidth = 51
-        productsincategorytable.Size = New Size(400, 400)
-        productsincategorytable.TabIndex = 3
+        productincategorydg.AllowUserToAddRows = False
+        productincategorydg.AllowUserToDeleteRows = False
+        productincategorydg.BackgroundColor = Color.White
+        productincategorydg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        productincategorydg.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn7, DataGridViewTextBoxColumn8, Column7})
+        productincategorydg.Location = New Point(697, 137)
+        productincategorydg.Name = "productincategorydg"
+        productincategorydg.ReadOnly = True
+        productincategorydg.RowHeadersVisible = False
+        productincategorydg.RowHeadersWidth = 51
+        productincategorydg.Size = New Size(400, 400)
+        productincategorydg.TabIndex = 3
         ' 
         ' DataGridViewTextBoxColumn7
         ' 
-        DataGridViewTextBoxColumn7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewTextBoxColumn7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         DataGridViewTextBoxColumn7.HeaderText = "ID"
         DataGridViewTextBoxColumn7.MinimumWidth = 6
         DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         DataGridViewTextBoxColumn7.ReadOnly = True
+        DataGridViewTextBoxColumn7.Width = 53
         ' 
         ' DataGridViewTextBoxColumn8
         ' 
@@ -857,7 +859,7 @@ Partial Class frmMainMenu
         ' Column7
         ' 
         Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        Column7.HeaderText = "Unit Price"
+        Column7.HeaderText = "Quantity In Stock"
         Column7.MinimumWidth = 6
         Column7.Name = "Column7"
         Column7.ReadOnly = True
@@ -912,7 +914,7 @@ Partial Class frmMainMenu
         productpanel1.Controls.Add(productlistdg)
         productpanel1.Controls.Add(Label17)
         productpanel1.Controls.Add(product_searchbtn)
-        productpanel1.Controls.Add(TextBox2)
+        productpanel1.Controls.Add(productsearchtxt)
         productpanel1.Location = New Point(356, 76)
         productpanel1.Name = "productpanel1"
         productpanel1.Size = New Size(1120, 883)
@@ -1150,7 +1152,7 @@ Partial Class frmMainMenu
         productlistdg.AllowUserToDeleteRows = False
         productlistdg.BackgroundColor = Color.White
         productlistdg.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        productlistdg.Columns.AddRange(New DataGridViewColumn() {Column8, Column9, Column10, Column11, Column12, Column13, Column14})
+        productlistdg.Columns.AddRange(New DataGridViewColumn() {Column8, Column15, Column9, Column10, Column11, Column12, Column13, Column14})
         productlistdg.Location = New Point(42, 141)
         productlistdg.Name = "productlistdg"
         productlistdg.ReadOnly = True
@@ -1167,6 +1169,14 @@ Partial Class frmMainMenu
         Column8.Name = "Column8"
         Column8.ReadOnly = True
         Column8.Width = 53
+        ' 
+        ' Column15
+        ' 
+        Column15.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column15.HeaderText = "Category"
+        Column15.MinimumWidth = 6
+        Column15.Name = "Column15"
+        Column15.ReadOnly = True
         ' 
         ' Column9
         ' 
@@ -1202,21 +1212,19 @@ Partial Class frmMainMenu
         ' 
         ' Column13
         ' 
-        Column13.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column13.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Column13.HeaderText = "Restocked Date"
         Column13.MinimumWidth = 6
         Column13.Name = "Column13"
         Column13.ReadOnly = True
-        Column13.Width = 130
         ' 
         ' Column14
         ' 
-        Column14.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column14.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
         Column14.HeaderText = "Expiration Date"
         Column14.MinimumWidth = 6
         Column14.Name = "Column14"
         Column14.ReadOnly = True
-        Column14.Width = 129
         ' 
         ' Label17
         ' 
@@ -1243,16 +1251,16 @@ Partial Class frmMainMenu
         product_searchbtn.TextImageRelation = TextImageRelation.TextBeforeImage
         product_searchbtn.UseVisualStyleBackColor = False
         ' 
-        ' TextBox2
+        ' productsearchtxt
         ' 
-        TextBox2.BorderStyle = BorderStyle.FixedSingle
-        TextBox2.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox2.ForeColor = Color.DimGray
-        TextBox2.Location = New Point(496, 37)
-        TextBox2.Name = "TextBox2"
-        TextBox2.PlaceholderText = "Search"
-        TextBox2.Size = New Size(600, 29)
-        TextBox2.TabIndex = 11
+        productsearchtxt.BorderStyle = BorderStyle.FixedSingle
+        productsearchtxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        productsearchtxt.ForeColor = Color.DimGray
+        productsearchtxt.Location = New Point(496, 37)
+        productsearchtxt.Name = "productsearchtxt"
+        productsearchtxt.PlaceholderText = "Search"
+        productsearchtxt.Size = New Size(600, 29)
+        productsearchtxt.TabIndex = 11
         ' 
         ' frmMainMenu
         ' 
@@ -1295,7 +1303,7 @@ Partial Class frmMainMenu
         categorypanel.PerformLayout()
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()
-        CType(productsincategorytable, ComponentModel.ISupportInitialize).EndInit()
+        CType(productincategorydg, ComponentModel.ISupportInitialize).EndInit()
         CType(categorylistdg, ComponentModel.ISupportInitialize).EndInit()
         productpanel1.ResumeLayout(False)
         productpanel1.PerformLayout()
@@ -1351,10 +1359,7 @@ Partial Class frmMainMenu
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents productsincategorytable As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents productincategorydg As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label12 As Label
@@ -1372,7 +1377,7 @@ Partial Class frmMainMenu
     Friend WithEvents productpanel1 As Panel
     Friend WithEvents Label17 As Label
     Friend WithEvents product_searchbtn As Button
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents productsearchtxt As TextBox
     Friend WithEvents productlistdg As DataGridView
     Friend WithEvents product_updatebtn As Button
     Friend WithEvents product_deletebutton As Button
@@ -1396,10 +1401,14 @@ Partial Class frmMainMenu
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
     Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
 End Class

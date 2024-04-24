@@ -11,7 +11,7 @@ Public Class frmMainMenu
 
     ' WELCOME PANEL
     Private Sub frmMainMenu_Load(sender As Object, e As EventArgs) 'Handles MyBase.Load
-        welcomepanel_Load
+        welcomepanel_Load()
     End Sub
 
     Public Sub welcomepanel_Load()
@@ -40,7 +40,7 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub LoadCategory(sender As Object, e As EventArgs) 'Handles MyBase.Load
-        LoadCategoryList
+        LoadCategoryList()
     End Sub
 
     Private Sub LoadCategoryList()
@@ -58,10 +58,12 @@ Public Class frmMainMenu
         Finally
             cmdread.Close()
         End Try
+
+
     End Sub
 
     Private Sub category_searchbtn_Click(sender As Object, e As EventArgs) Handles category_searchbtn.Click
-        Dim str As String = "SELECT * FROM product_category WHERE category_name LIKE '%" + searchbox.Text + "%' OR category_desc LIKE '&" + searchbox.Text + "&'"
+        Dim str As String = "SELECT * FROM product_category WHERE category_name LIKE '%" + searchbox.Text + "%' OR category_desc LIKE '%" + searchbox.Text + "%'"
         Try
             categorylistdg.Rows.Clear()
             readquery(str)
@@ -85,7 +87,6 @@ Public Class frmMainMenu
             Return
         End If
 
-        ' Check if the data already exists
         Dim checkQuery As String = "SELECT COUNT(*) FROM product_category WHERE category_name = '" & categoryName & "' AND category_desc = '" & categoryDesc & "'"
         Dim dataExists As Boolean = False
 
@@ -109,7 +110,6 @@ Public Class frmMainMenu
             Return
         End If
 
-        ' Proceed with insertion if data is unique
         Dim insertQuery As String = "INSERT INTO product_category(category_name, category_desc) VALUES ('" & categoryName & "', '" & categoryDesc & "')"
         Try
             readquery(insertQuery)
@@ -145,18 +145,69 @@ Public Class frmMainMenu
     End Sub
 
     Private selectedCategoryId As Integer
+
+    'Private Sub categorylistdg_SelectionChanged(sender As Object, e As EventArgs) Handles categorylistdg.SelectionChanged
+    '    If categorylistdg.SelectedRows.Count > 0 Then
+    '        Dim selectedRow = categorylistdg.SelectedRows(0)
+    '        selectedCategoryId = Convert.ToInt32(selectedRow.Cells(0).Value)
+    '        categorynametxt.Text = selectedRow.Cells(1).Value.ToString()
+    '        categorydesctxt.Text = selectedRow.Cells(2).Value.ToString()
+
+    '        ' Clear previous data in productincategorydg
+    '        productincategorydg.Rows.Clear()
+
+    '        ' Add code to populate productincategorydg based on the selected category
+    '        Dim sql As String = "SELECT category_id, product_name, quantity_in_stock FROM product, product_category WHERE category_id = category AND category_id = @categoryId ORDER BY product_name LIMIT 1"
+    '        Try
+    '            Using conn As New MySqlConnection(strconn)
+    '                conn.Open()
+    '                Using cmd As New MySqlCommand(sql, conn)
+    '                    cmd.Parameters.AddWithValue("@categoryId", selectedCategoryId)
+    '                    Using reader As MySqlDataReader = cmd.ExecuteReader()
+    '                        If reader.Read() Then
+    '                            productincategorydg.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2))
+    '                        End If
+    '                    End Using
+    '                End Using
+    '            End Using
+    '        Catch ex As Exception
+    '            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+    '        End Try
+    '    End If
+    'End Sub
     Private Sub categorylistdg_SelectionChanged(sender As Object, e As EventArgs) Handles categorylistdg.SelectionChanged
         If categorylistdg.SelectedRows.Count > 0 Then
             Dim selectedRow = categorylistdg.SelectedRows(0)
             selectedCategoryId = Convert.ToInt32(selectedRow.Cells(0).Value)
             categorynametxt.Text = selectedRow.Cells(1).Value.ToString()
             categorydesctxt.Text = selectedRow.Cells(2).Value.ToString()
+
+            ' Clear previous data in productincategorydg
+            productincategorydg.Rows.Clear()
+
+            ' Add code to populate productincategorydg based on the selected category
+            Dim sql As String = "SELECT category_id, product_name, quantity_in_stock FROM product, product_category WHERE category_id = category AND category_id = @categoryId ORDER BY product_name LIMIT 1"
+            Try
+                Using conn As New MySqlConnection(strconn)
+                    conn.Open()
+                    Using cmd As New MySqlCommand(sql, conn)
+                        cmd.Parameters.AddWithValue("@categoryId", selectedCategoryId)
+                        Using reader As MySqlDataReader = cmd.ExecuteReader()
+                            If reader.Read() Then
+                                productincategorydg.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2))
+                            End If
+                        End Using
+                    End Using
+                End Using
+            Catch ex As Exception
+                MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+            End Try
         End If
     End Sub
 
 
 
-    ' PRODUCT PANEL
+    ' PRODUCT PANEL - SEARCH
     Private Sub productbtn_Click(sender As Object, e As EventArgs) Handles productbtn.Click
         For Each panel As Panel In {welcomepanel, dashboardpanel, categorypanel}
             panel.Visible = False
@@ -164,7 +215,7 @@ Public Class frmMainMenu
         productpanel1.Visible = True
     End Sub
 
-    Private Sub LoadProduct(sender As Object, e As EventArgs) Handles MyBase.Load 'FUNCTION TO LOAD DATA 
+    Private Sub LoadProduct(sender As Object, e As EventArgs) Handles MyBase.Load 'Handles MyBase.Load 'FUNCTION TO LOAD DATA 
         LoadProductList()
     End Sub
 
@@ -186,19 +237,20 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub product_searchbtn_Click(sender As Object, e As EventArgs) Handles product_searchbtn.Click
-        Dim str = "SELECT * FROM product WHERE category_id LIKE '%" + searchbox.Text + "%' OR category_name LIKE '&" + searchbox.Text + "&'"
+        Dim str As String = "SELECT * FROM product WHERE product_id LIKE '%" + productsearchtxt.Text + "%' OR product_name LIKE '%" + productsearchtxt.Text + "%' OR quantity_in_stock LIKE '%" + productsearchtxt.Text + "%' OR last_restocked_date LIKE '%" + productsearchtxt.Text + "%'  OR expiration_date LIKE '%" + productsearchtxt.Text + "%'"
         Try
-            categorylistdg.Rows.Clear()
+            productlistdg.Rows.Clear()
             readquery(str)
             With cmdread
                 While .Read
-                    categorylistdg.Rows.Add(.GetValue(0), .GetValue(1), .GetValue(2))
+                    productlistdg.Rows.Add(.GetValue(0), .GetValue(1), .GetValue(2), .GetValue(3), .GetValue(4), .GetValue(5), .GetValue(6))
                 End While
             End With
         Catch ex As Exception
 
         End Try
     End Sub
+
 
 
 End Class
