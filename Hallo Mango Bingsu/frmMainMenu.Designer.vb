@@ -89,21 +89,21 @@ Partial Class frmMainMenu
         Column6 = New DataGridViewTextBoxColumn()
         productpanel1 = New Panel()
         GroupBox1 = New GroupBox()
-        TextBox6 = New TextBox()
+        unitpricetxt = New TextBox()
         Label26 = New Label()
-        DateTimePicker2 = New DateTimePicker()
+        expirationdatedtp = New DateTimePicker()
         Label25 = New Label()
-        DateTimePicker1 = New DateTimePicker()
+        restockdatedtp = New DateTimePicker()
         Label24 = New Label()
-        TextBox5 = New TextBox()
+        qtyinstocktxt = New TextBox()
         Label23 = New Label()
-        TextBox4 = New TextBox()
+        qtytxt = New TextBox()
         Label22 = New Label()
         product_updatebtn = New Button()
         product_deletebutton = New Button()
-        TextBox1 = New TextBox()
+        categorytxt = New TextBox()
         Label19 = New Label()
-        TextBox3 = New TextBox()
+        productnametxt = New TextBox()
         Label20 = New Label()
         product_addbtn = New Button()
         Label21 = New Label()
@@ -922,21 +922,21 @@ Partial Class frmMainMenu
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Controls.Add(TextBox6)
+        GroupBox1.Controls.Add(unitpricetxt)
         GroupBox1.Controls.Add(Label26)
-        GroupBox1.Controls.Add(DateTimePicker2)
+        GroupBox1.Controls.Add(expirationdatedtp)
         GroupBox1.Controls.Add(Label25)
-        GroupBox1.Controls.Add(DateTimePicker1)
+        GroupBox1.Controls.Add(restockdatedtp)
         GroupBox1.Controls.Add(Label24)
-        GroupBox1.Controls.Add(TextBox5)
+        GroupBox1.Controls.Add(qtyinstocktxt)
         GroupBox1.Controls.Add(Label23)
-        GroupBox1.Controls.Add(TextBox4)
+        GroupBox1.Controls.Add(qtytxt)
         GroupBox1.Controls.Add(Label22)
         GroupBox1.Controls.Add(product_updatebtn)
         GroupBox1.Controls.Add(product_deletebutton)
-        GroupBox1.Controls.Add(TextBox1)
+        GroupBox1.Controls.Add(categorytxt)
         GroupBox1.Controls.Add(Label19)
-        GroupBox1.Controls.Add(TextBox3)
+        GroupBox1.Controls.Add(productnametxt)
         GroupBox1.Controls.Add(Label20)
         GroupBox1.Controls.Add(product_addbtn)
         GroupBox1.Controls.Add(Label21)
@@ -947,15 +947,15 @@ Partial Class frmMainMenu
         GroupBox1.TabIndex = 15
         GroupBox1.TabStop = False
         ' 
-        ' TextBox6
+        ' unitpricetxt
         ' 
-        TextBox6.BackColor = Color.WhiteSmoke
-        TextBox6.BorderStyle = BorderStyle.FixedSingle
-        TextBox6.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox6.Location = New Point(727, 198)
-        TextBox6.Name = "TextBox6"
-        TextBox6.Size = New Size(300, 29)
-        TextBox6.TabIndex = 20
+        unitpricetxt.BackColor = Color.WhiteSmoke
+        unitpricetxt.BorderStyle = BorderStyle.FixedSingle
+        unitpricetxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        unitpricetxt.Location = New Point(727, 198)
+        unitpricetxt.Name = "unitpricetxt"
+        unitpricetxt.Size = New Size(300, 29)
+        unitpricetxt.TabIndex = 20
         ' 
         ' Label26
         ' 
@@ -967,12 +967,12 @@ Partial Class frmMainMenu
         Label26.TabIndex = 19
         Label26.Text = "Unit Price"
         ' 
-        ' DateTimePicker2
+        ' expirationdatedtp
         ' 
-        DateTimePicker2.Location = New Point(727, 152)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(300, 27)
-        DateTimePicker2.TabIndex = 18
+        expirationdatedtp.Location = New Point(727, 152)
+        expirationdatedtp.Name = "expirationdatedtp"
+        expirationdatedtp.Size = New Size(300, 27)
+        expirationdatedtp.TabIndex = 18
         ' 
         ' Label25
         ' 
@@ -984,12 +984,12 @@ Partial Class frmMainMenu
         Label25.TabIndex = 17
         Label25.Text = "Expiration Date"
         ' 
-        ' DateTimePicker1
+        ' restockdatedtp
         ' 
-        DateTimePicker1.Location = New Point(727, 103)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(300, 27)
-        DateTimePicker1.TabIndex = 16
+        restockdatedtp.Location = New Point(727, 103)
+        restockdatedtp.Name = "restockdatedtp"
+        restockdatedtp.Size = New Size(300, 27)
+        restockdatedtp.TabIndex = 16
         ' 
         ' Label24
         ' 
@@ -1001,15 +1001,15 @@ Partial Class frmMainMenu
         Label24.TabIndex = 12
         Label24.Text = "Restock Date"
         ' 
-        ' TextBox5
+        ' qtyinstocktxt
         ' 
-        TextBox5.BackColor = Color.WhiteSmoke
-        TextBox5.BorderStyle = BorderStyle.FixedSingle
-        TextBox5.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox5.Location = New Point(221, 246)
-        TextBox5.Name = "TextBox5"
-        TextBox5.Size = New Size(300, 29)
-        TextBox5.TabIndex = 11
+        qtyinstocktxt.BackColor = Color.WhiteSmoke
+        qtyinstocktxt.BorderStyle = BorderStyle.FixedSingle
+        qtyinstocktxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        qtyinstocktxt.Location = New Point(221, 246)
+        qtyinstocktxt.Name = "qtyinstocktxt"
+        qtyinstocktxt.Size = New Size(300, 29)
+        qtyinstocktxt.TabIndex = 11
         ' 
         ' Label23
         ' 
@@ -1021,15 +1021,15 @@ Partial Class frmMainMenu
         Label23.TabIndex = 10
         Label23.Text = "Quantity In Stock"
         ' 
-        ' TextBox4
+        ' qtytxt
         ' 
-        TextBox4.BackColor = Color.WhiteSmoke
-        TextBox4.BorderStyle = BorderStyle.FixedSingle
-        TextBox4.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox4.Location = New Point(221, 198)
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(300, 29)
-        TextBox4.TabIndex = 9
+        qtytxt.BackColor = Color.WhiteSmoke
+        qtytxt.BorderStyle = BorderStyle.FixedSingle
+        qtytxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        qtytxt.Location = New Point(221, 198)
+        qtytxt.Name = "qtytxt"
+        qtytxt.Size = New Size(300, 29)
+        qtytxt.TabIndex = 9
         ' 
         ' Label22
         ' 
@@ -1069,15 +1069,15 @@ Partial Class frmMainMenu
         product_deletebutton.Text = "DELETE"
         product_deletebutton.UseVisualStyleBackColor = False
         ' 
-        ' TextBox1
+        ' categorytxt
         ' 
-        TextBox1.BackColor = Color.WhiteSmoke
-        TextBox1.BorderStyle = BorderStyle.FixedSingle
-        TextBox1.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.Location = New Point(221, 148)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(300, 29)
-        TextBox1.TabIndex = 5
+        categorytxt.BackColor = Color.WhiteSmoke
+        categorytxt.BorderStyle = BorderStyle.FixedSingle
+        categorytxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        categorytxt.Location = New Point(221, 148)
+        categorytxt.Name = "categorytxt"
+        categorytxt.Size = New Size(300, 29)
+        categorytxt.TabIndex = 5
         ' 
         ' Label19
         ' 
@@ -1089,15 +1089,15 @@ Partial Class frmMainMenu
         Label19.TabIndex = 4
         Label19.Text = "Category"
         ' 
-        ' TextBox3
+        ' productnametxt
         ' 
-        TextBox3.BackColor = Color.WhiteSmoke
-        TextBox3.BorderStyle = BorderStyle.FixedSingle
-        TextBox3.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox3.Location = New Point(221, 103)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(300, 29)
-        TextBox3.TabIndex = 3
+        productnametxt.BackColor = Color.WhiteSmoke
+        productnametxt.BorderStyle = BorderStyle.FixedSingle
+        productnametxt.Font = New Font("Gotham", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        productnametxt.Location = New Point(221, 103)
+        productnametxt.Name = "productnametxt"
+        productnametxt.Size = New Size(300, 29)
+        productnametxt.TabIndex = 3
         ' 
         ' Label20
         ' 
@@ -1355,7 +1355,7 @@ Partial Class frmMainMenu
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents categorylistdg As DataGridView
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents categorytxt As TextBox
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
@@ -1382,21 +1382,21 @@ Partial Class frmMainMenu
     Friend WithEvents product_updatebtn As Button
     Friend WithEvents product_deletebutton As Button
     Friend WithEvents Label19 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents productnametxt As TextBox
     Friend WithEvents Label20 As Label
     Friend WithEvents product_addbtn As Button
     Friend WithEvents Label21 As Label
     Friend WithEvents Label18 As Label
     Friend WithEvents Label24 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents qtyinstocktxt As TextBox
     Friend WithEvents Label23 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents qtytxt As TextBox
     Friend WithEvents Label22 As Label
     Friend WithEvents Label26 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents expirationdatedtp As DateTimePicker
     Friend WithEvents Label25 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents restockdatedtp As DateTimePicker
+    Friend WithEvents unitpricetxt As TextBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn

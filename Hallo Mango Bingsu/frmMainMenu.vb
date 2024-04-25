@@ -59,7 +59,6 @@ Public Class frmMainMenu
             cmdread.Close()
         End Try
 
-
     End Sub
 
     Private Sub category_searchbtn_Click(sender As Object, e As EventArgs) Handles category_searchbtn.Click
@@ -146,35 +145,6 @@ Public Class frmMainMenu
 
     Private selectedCategoryId As Integer
 
-    'Private Sub categorylistdg_SelectionChanged(sender As Object, e As EventArgs) Handles categorylistdg.SelectionChanged
-    '    If categorylistdg.SelectedRows.Count > 0 Then
-    '        Dim selectedRow = categorylistdg.SelectedRows(0)
-    '        selectedCategoryId = Convert.ToInt32(selectedRow.Cells(0).Value)
-    '        categorynametxt.Text = selectedRow.Cells(1).Value.ToString()
-    '        categorydesctxt.Text = selectedRow.Cells(2).Value.ToString()
-
-    '        ' Clear previous data in productincategorydg
-    '        productincategorydg.Rows.Clear()
-
-    '        ' Add code to populate productincategorydg based on the selected category
-    '        Dim sql As String = "SELECT category_id, product_name, quantity_in_stock FROM product, product_category WHERE category_id = category AND category_id = @categoryId ORDER BY product_name LIMIT 1"
-    '        Try
-    '            Using conn As New MySqlConnection(strconn)
-    '                conn.Open()
-    '                Using cmd As New MySqlCommand(sql, conn)
-    '                    cmd.Parameters.AddWithValue("@categoryId", selectedCategoryId)
-    '                    Using reader As MySqlDataReader = cmd.ExecuteReader()
-    '                        If reader.Read() Then
-    '                            productincategorydg.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2))
-    '                        End If
-    '                    End Using
-    '                End Using
-    '            End Using
-    '        Catch ex As Exception
-    '            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
-    '        End Try
-    '    End If
-    'End Sub
     Private Sub categorylistdg_SelectionChanged(sender As Object, e As EventArgs) Handles categorylistdg.SelectionChanged
         If categorylistdg.SelectedRows.Count > 0 Then
             Dim selectedRow = categorylistdg.SelectedRows(0)
@@ -182,10 +152,8 @@ Public Class frmMainMenu
             categorynametxt.Text = selectedRow.Cells(1).Value.ToString()
             categorydesctxt.Text = selectedRow.Cells(2).Value.ToString()
 
-            ' Clear previous data in productincategorydg
             productincategorydg.Rows.Clear()
 
-            ' Add code to populate productincategorydg based on the selected category
             Dim sql As String = "SELECT category_id, product_name, quantity_in_stock FROM product, product_category WHERE category_id = category AND category_id = @categoryId ORDER BY product_name LIMIT 1"
             Try
                 Using conn As New MySqlConnection(strconn)
@@ -207,7 +175,7 @@ Public Class frmMainMenu
 
 
 
-    ' PRODUCT PANEL - SEARCH
+    ' PRODUCT PANEL - SEARCH - ADD
     Private Sub productbtn_Click(sender As Object, e As EventArgs) Handles productbtn.Click
         For Each panel As Panel In {welcomepanel, dashboardpanel, categorypanel}
             panel.Visible = False
@@ -251,6 +219,25 @@ Public Class frmMainMenu
         End Try
     End Sub
 
+    Private Sub product_addbtn_Click(sender As Object, e As EventArgs) Handles product_addbtn.Click
+        Dim productName As String = productnametxt.Text.Trim()
+        Dim category As String = categorytxt.Text.Trim()
+        Dim qty As String = qtytxt.Text.Trim()
+        Dim qtyInStock As String = qtyinstocktxt.Text.Trim()
+        Dim unitPrice As String = unitpricetxt.Text.Trim()
 
+        If String.IsNullOrWhiteSpace(productName) OrElse String.IsNullOrWhiteSpace(category) OrElse String.IsNullOrWhiteSpace(qty) OrElse String.IsNullOrWhiteSpace(qtyInStock) OrElse String.IsNullOrWhiteSpace(unitPrice) Then
+            MessageBox.Show("There is/are missing information. Please try again.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
 
+    End Sub
+
+    Private Sub product_updatebtn_Click(sender As Object, e As EventArgs) Handles product_updatebtn.Click
+
+    End Sub
+
+    Private Sub product_deletebutton_Click(sender As Object, e As EventArgs) Handles product_deletebutton.Click
+
+    End Sub
 End Class

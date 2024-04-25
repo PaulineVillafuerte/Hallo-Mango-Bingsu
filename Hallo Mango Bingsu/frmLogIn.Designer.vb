@@ -25,12 +25,12 @@ Partial Class frmLogIn
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogIn))
         PictureBox1 = New PictureBox()
         Label1 = New Label()
-        TextBox1 = New TextBox()
-        Button1 = New Button()
-        CheckBox1 = New CheckBox()
+        usernametxt = New TextBox()
+        loginbtn = New Button()
+        showpass = New CheckBox()
         PictureBox2 = New PictureBox()
         PictureBox3 = New PictureBox()
-        TextBox2 = New TextBox()
+        passtxt = New TextBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
@@ -58,43 +58,43 @@ Partial Class frmLogIn
         Label1.TabIndex = 4
         Label1.Text = "LOG IN"
         ' 
-        ' TextBox1
+        ' usernametxt
         ' 
-        TextBox1.BackColor = Color.Gainsboro
-        TextBox1.BorderStyle = BorderStyle.None
-        TextBox1.Font = New Font("Gotham", 19.7999973F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox1.ForeColor = SystemColors.WindowFrame
-        TextBox1.Location = New Point(437, 406)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(350, 36)
-        TextBox1.TabIndex = 10
-        TextBox1.Text = "Username"
+        usernametxt.BackColor = Color.Gainsboro
+        usernametxt.BorderStyle = BorderStyle.None
+        usernametxt.Font = New Font("Gotham", 19.7999973F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        usernametxt.ForeColor = SystemColors.WindowFrame
+        usernametxt.Location = New Point(437, 406)
+        usernametxt.Name = "usernametxt"
+        usernametxt.PlaceholderText = "Username"
+        usernametxt.Size = New Size(350, 36)
+        usernametxt.TabIndex = 10
         ' 
-        ' Button1
+        ' loginbtn
         ' 
-        Button1.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
-        Button1.FlatAppearance.BorderColor = Color.White
-        Button1.FlatAppearance.BorderSize = 0
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Gotham", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.Location = New Point(503, 613)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(160, 50)
-        Button1.TabIndex = 13
-        Button1.Text = "Log In"
-        Button1.UseVisualStyleBackColor = False
+        loginbtn.BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
+        loginbtn.FlatAppearance.BorderColor = Color.White
+        loginbtn.FlatAppearance.BorderSize = 0
+        loginbtn.FlatStyle = FlatStyle.Flat
+        loginbtn.Font = New Font("Gotham", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        loginbtn.Location = New Point(503, 613)
+        loginbtn.Name = "loginbtn"
+        loginbtn.Size = New Size(160, 50)
+        loginbtn.TabIndex = 13
+        loginbtn.Text = "Log In"
+        loginbtn.UseVisualStyleBackColor = False
         ' 
-        ' CheckBox1
+        ' showpass
         ' 
-        CheckBox1.AutoSize = True
-        CheckBox1.BackColor = Color.White
-        CheckBox1.Font = New Font("Gotham", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        CheckBox1.Location = New Point(437, 510)
-        CheckBox1.Name = "CheckBox1"
-        CheckBox1.Size = New Size(130, 19)
-        CheckBox1.TabIndex = 14
-        CheckBox1.Text = "Show Password"
-        CheckBox1.UseVisualStyleBackColor = False
+        showpass.AutoSize = True
+        showpass.BackColor = Color.White
+        showpass.Font = New Font("Gotham", 7.79999971F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        showpass.Location = New Point(437, 510)
+        showpass.Name = "showpass"
+        showpass.Size = New Size(130, 19)
+        showpass.TabIndex = 14
+        showpass.Text = "Show Password"
+        showpass.UseVisualStyleBackColor = False
         ' 
         ' PictureBox2
         ' 
@@ -118,17 +118,18 @@ Partial Class frmLogIn
         PictureBox3.TabIndex = 16
         PictureBox3.TabStop = False
         ' 
-        ' TextBox2
+        ' passtxt
         ' 
-        TextBox2.BackColor = Color.Gainsboro
-        TextBox2.BorderStyle = BorderStyle.None
-        TextBox2.Font = New Font("Gotham", 19.7999973F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        TextBox2.ForeColor = SystemColors.WindowFrame
-        TextBox2.Location = New Point(437, 468)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(350, 36)
-        TextBox2.TabIndex = 17
-        TextBox2.Text = "Password"
+        passtxt.BackColor = Color.Gainsboro
+        passtxt.BorderStyle = BorderStyle.None
+        passtxt.Font = New Font("Gotham", 19.7999973F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        passtxt.ForeColor = SystemColors.WindowFrame
+        passtxt.Location = New Point(437, 468)
+        passtxt.Name = "passtxt"
+        passtxt.PlaceholderText = "Password"
+        passtxt.Size = New Size(350, 36)
+        passtxt.TabIndex = 17
+        passtxt.UseSystemPasswordChar = True
         ' 
         ' frmLogIn
         ' 
@@ -136,16 +137,17 @@ Partial Class frmLogIn
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(243), CByte(196), CByte(68))
         ClientSize = New Size(1182, 753)
-        Controls.Add(TextBox2)
+        Controls.Add(passtxt)
         Controls.Add(PictureBox3)
         Controls.Add(PictureBox2)
-        Controls.Add(CheckBox1)
-        Controls.Add(Button1)
-        Controls.Add(TextBox1)
+        Controls.Add(showpass)
+        Controls.Add(loginbtn)
+        Controls.Add(usernametxt)
         Controls.Add(Label1)
         Controls.Add(PictureBox1)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "frmLogIn"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Hallo Mango Bingsu - Daet Inventory System"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
@@ -156,11 +158,11 @@ Partial Class frmLogIn
 
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents usernametxt As TextBox
+    Friend WithEvents loginbtn As Button
+    Friend WithEvents showpass As CheckBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents passtxt As TextBox
 
 End Class
