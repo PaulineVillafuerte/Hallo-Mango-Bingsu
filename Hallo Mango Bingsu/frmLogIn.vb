@@ -23,7 +23,7 @@
                 ElseIf usernametxt.Text.Trim = "staff" And passtxt.Text.Trim = "staff123" Then
                     usernametxt.Clear()
                     passtxt.Clear()
-                    ' disable yung staff button
+                    frmMainMenu.disableStaffBtn(True)
                     frmMainMenu.Show()
                     Me.Hide()
                 Else
@@ -42,6 +42,6 @@
         Else
             passtxt.UseSystemPasswordChar = True
         End If
-
     End Sub
+
 End Class

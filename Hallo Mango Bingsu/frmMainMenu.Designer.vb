@@ -1158,6 +1158,7 @@ Partial Class frmMainMenu
         productlistdg.ReadOnly = True
         productlistdg.RowHeadersVisible = False
         productlistdg.RowHeadersWidth = 51
+        productlistdg.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         productlistdg.Size = New Size(1055, 300)
         productlistdg.TabIndex = 13
         ' 

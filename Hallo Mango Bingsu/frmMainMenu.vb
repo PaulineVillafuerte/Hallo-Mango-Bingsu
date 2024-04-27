@@ -2,6 +2,10 @@
 
 Public Class frmMainMenu
 
+    Public Sub disableStaffBtn(bool As Boolean)
+        staffbtn.Visible = False
+    End Sub
+
     Private Sub logoutbtn_Click(sender As Object, e As EventArgs) Handles logoutbtn.Click
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
@@ -183,7 +187,7 @@ Public Class frmMainMenu
         productpanel1.Visible = True
     End Sub
 
-    Private Sub LoadProduct(sender As Object, e As EventArgs) Handles MyBase.Load 'Handles MyBase.Load 'FUNCTION TO LOAD DATA 
+    Private Sub LoadProduct(sender As Object, e As EventArgs) Handles MyBase.Load 'Handles MyBase.Load
         LoadProductList()
     End Sub
 
@@ -194,7 +198,7 @@ Public Class frmMainMenu
             readquery(sql)
             With cmdread
                 While .Read
-                    productlistdg.Rows.Add(.GetValue(0), .GetValue(1), .GetValue(2), .GetValue(3), .GetValue(4), .GetValue(5), .GetValue(6))
+                    productlistdg.Rows.Add(.GetValue(0), .GetValue(1), .GetValue(2), .GetValue(3), .GetValue(4), .GetValue(5), .GetValue(6), .GetValue(7))
                 End While
             End With
         Catch ex As Exception
@@ -205,13 +209,13 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub product_searchbtn_Click(sender As Object, e As EventArgs) Handles product_searchbtn.Click
-        Dim str As String = "SELECT * FROM product WHERE product_id LIKE '%" + productsearchtxt.Text + "%' OR product_name LIKE '%" + productsearchtxt.Text + "%' OR quantity_in_stock LIKE '%" + productsearchtxt.Text + "%' OR last_restocked_date LIKE '%" + productsearchtxt.Text + "%'  OR expiration_date LIKE '%" + productsearchtxt.Text + "%'"
+        Dim str As String = "SELECT * FROM product WHERE product_id LIKE '%" + productsearchtxt.Text + "%' OR product_name LIKE '%" + productsearchtxt.Text + "%' OR product_quantity LIKE '%" + productsearchtxt.Text + "%' OR quantity_in_stock LIKE '%" + productsearchtxt.Text + "%' OR last_restocked_date LIKE '%" + productsearchtxt.Text + "%'  OR expiration_date LIKE '%" + productsearchtxt.Text + "%'"
         Try
             productlistdg.Rows.Clear()
             readquery(str)
             With cmdread
                 While .Read
-                    productlistdg.Rows.Add(.GetValue(0), .GetValue(1), .GetValue(2), .GetValue(3), .GetValue(4), .GetValue(5), .GetValue(6))
+                    productlistdg.Rows.Add(.GetValue(0), .GetValue(1), .GetValue(2), .GetValue(3), .GetValue(4), .GetValue(5), .GetValue(6), .GetValue(7))
                 End While
             End With
         Catch ex As Exception
@@ -225,11 +229,50 @@ Public Class frmMainMenu
         Dim qty As String = qtytxt.Text.Trim()
         Dim qtyInStock As String = qtyinstocktxt.Text.Trim()
         Dim unitPrice As String = unitpricetxt.Text.Trim()
+        Dim restockedDate As String = restockdatedtp.Value.ToString("yyyy-MM-dd")
+        Dim expirationDate As String = expirationdatedtp.Value.ToString("yyyy-MM-dd")
 
         If String.IsNullOrWhiteSpace(productName) OrElse String.IsNullOrWhiteSpace(category) OrElse String.IsNullOrWhiteSpace(qty) OrElse String.IsNullOrWhiteSpace(qtyInStock) OrElse String.IsNullOrWhiteSpace(unitPrice) Then
             MessageBox.Show("There is/are missing information. Please try again.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
+
+        Dim checkQuery As String = "SELECT COUNT(*) FROM product WHERE product_name = '" & productName & "' AND product_quantity = '" & qty & "' AND unit_price = '" & unitPrice & "' AND last_restocked_date = '" & restockedDate & "' AND expiration_date = '" & expirationDate & "'"
+        Dim dataExists As Boolean = False
+
+        Try
+            readquery(checkQuery)
+            If cmdread.HasRows Then
+                cmdread.Read()
+                productnametxt.Clear()
+                categorytxt.Clear()
+                qtytxt.Clear()
+                qtyinstocktxt.Clear()
+                unitpricetxt.Clear()
+                Dim count As Integer = CInt(cmdread(0))
+                dataExists = count > 0
+            End If
+            cmdread.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+            Return
+        End Try
+
+        If dataExists Then
+            MessageBox.Show("Product with the same details already exists. Please try again.", "Duplicate Category", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim insertQuery As String = "INSERT INTO product(category, product_name, product_quantity, quantity_in_stock, last_restocked_date, expiration_date, unit_price) VALUES ('" & category & "', '" & productName & "', '" & qty & "', '" & qtyInStock & "', '" & restockedDate & "', '" & expirationDate & "', '" & unitPrice & "')"
+        Try
+            readquery(insertQuery)
+            categorynametxt.Clear()
+            categorydesctxt.Clear()
+            MessageBox.Show("New product has been added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            LoadCategoryList()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
 
     End Sub
 
