@@ -179,7 +179,7 @@ Public Class frmMainMenu
 
 
 
-    ' PRODUCT PANEL - SEARCH - ADD
+    ' PRODUCT PANEL - SEARCH - ADD - UPDATE
     Private Sub productbtn_Click(sender As Object, e As EventArgs) Handles productbtn.Click
         For Each panel As Panel In {welcomepanel, dashboardpanel, categorypanel}
             panel.Visible = False
@@ -277,8 +277,61 @@ Public Class frmMainMenu
     End Sub
 
     Private Sub product_updatebtn_Click(sender As Object, e As EventArgs) Handles product_updatebtn.Click
-
+        Dim restockDate As String = restockdatedtp.Value.ToString("yyyy-MM-dd HH:mm:ss")
+        Dim expirationDate As String = expirationdatedtp.Value.ToString("yyyy-MM-dd HH:mm:ss")
+        Dim str As String = "UPDATE product SET product_name = '" & productnametxt.Text & "', category = '" & categorytxt.Text & "', quantity = '" & qtytxt.Text & "', quantity_in_stock = '" & qtyinstocktxt.Text & "', unit_price = '" & unitpricetxt.Text & "', last_restocked_date = '" & restockDate & "', expiration_date = '" & expirationDate & "' WHERE category_id =  '" & selectedProductId & "'"
+        If String.IsNullOrWhiteSpace(productnametxt.Text) OrElse String.IsNullOrWhiteSpace(categorytxt.Text) OrElse String.IsNullOrWhiteSpace(qtytxt.Text) OrElse String.IsNullOrWhiteSpace(qtyinstocktxt.Text) OrElse String.IsNullOrWhiteSpace(unitpricetxt.Text) Then
+            MessageBox.Show("Please fill out all needed information.", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+        Try
+            readquery(str)
+            MessageBox.Show("Product information has been updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            LoadCategoryList()
+            productnametxt.Clear()
+            categorytxt.Clear()
+            qtytxt.Clear()
+            qtyinstocktxt.Clear()
+            unitpricetxt.Clear()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+        End Try
     End Sub
+
+    Private selectedProductId As Integer
+
+    Private Sub productlistdg_SelectionChanged(sender As Object, e As EventArgs) Handles productlistdg.SelectionChanged
+        If productlistdg.SelectedRows.Count > 0 Then
+            Dim selectedRow = productlistdg.SelectedRows(0)
+            selectedProductId = Convert.ToInt32(selectedRow.Cells(0).Value)
+            productnametxt.Text = selectedRow.Cells(1).Value.ToString()
+            categorytxt.Text = selectedRow.Cells(2).Value.ToString()
+            qtytxt.Text = selectedRow.Cells(3).Value.ToString()
+            qtyinstocktxt.Text = selectedRow.Cells(4).Value.ToString()
+            categorytxt.Text = selectedRow.Cells(5).Value.ToString()
+            qtytxt.Text = selectedRow.Cells(6).Value.ToString()
+            unitpricetxt.Text = selectedRow.Cells(7).Value.ToString()
+
+
+            Dim sql As String = "SELECT product_id, product_name, category, product_quantity, quantity_instock, product_unit_price, last_restocked_date, expiration_date FROM product WHERE category_id = category AND category_id = @categoryId ORDER BY product_name LIMIT 1"
+            Try
+                Using conn As New MySqlConnection(strconn)
+                    conn.Open()
+                    Using cmd As New MySqlCommand(sql, conn)
+                        cmd.Parameters.AddWithValue("@categoryId", selectedCategoryId)
+                        Using reader As MySqlDataReader = cmd.ExecuteReader()
+                            If reader.Read() Then
+                                productincategorydg.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2))
+                            End If
+                        End Using
+                    End Using
+                End Using
+            Catch ex As Exception
+                MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+            End Try
+        End If
+    End Sub
+
 
     Private Sub product_deletebutton_Click(sender As Object, e As EventArgs) Handles product_deletebutton.Click
 
