@@ -266,8 +266,11 @@ Public Class frmMainMenu
         Dim insertQuery As String = "INSERT INTO product(category, product_name, product_quantity, quantity_in_stock, last_restocked_date, expiration_date, unit_price) VALUES ('" & category & "', '" & productName & "', '" & qty & "', '" & qtyInStock & "', '" & restockedDate & "', '" & expirationDate & "', '" & unitPrice & "')"
         Try
             readquery(insertQuery)
-            categorynametxt.Clear()
-            categorydesctxt.Clear()
+            productnametxt.Clear()
+            categorytxt.Clear()
+            qtytxt.Clear()
+            qtyinstocktxt.Clear()
+            unitpricetxt.Clear()
             MessageBox.Show("New product has been added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             LoadCategoryList()
         Catch ex As Exception

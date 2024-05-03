@@ -377,6 +377,8 @@ Partial Class frmMainMenu
         ' 
         ' dashboardpanel
         ' 
+        dashboardpanel.Controls.Add(productpanel1)
+        dashboardpanel.Controls.Add(categorypanel)
         dashboardpanel.Controls.Add(Label5)
         dashboardpanel.Controls.Add(Label4)
         dashboardpanel.Controls.Add(Label3)
@@ -648,7 +650,7 @@ Partial Class frmMainMenu
         categorypanel.Controls.Add(Label12)
         categorypanel.Controls.Add(productincategorydg)
         categorypanel.Controls.Add(categorylistdg)
-        categorypanel.Location = New Point(356, 76)
+        categorypanel.Location = New Point(16, 12)
         categorypanel.Name = "categorypanel"
         categorypanel.Size = New Size(1130, 883)
         categorypanel.TabIndex = 3
@@ -915,7 +917,7 @@ Partial Class frmMainMenu
         productpanel1.Controls.Add(Label17)
         productpanel1.Controls.Add(product_searchbtn)
         productpanel1.Controls.Add(productsearchtxt)
-        productpanel1.Location = New Point(356, 76)
+        productpanel1.Location = New Point(10, 15)
         productpanel1.Name = "productpanel1"
         productpanel1.Size = New Size(1120, 883)
         productpanel1.TabIndex = 4
@@ -1268,8 +1270,6 @@ Partial Class frmMainMenu
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1482, 953)
-        Controls.Add(productpanel1)
-        Controls.Add(categorypanel)
         Controls.Add(dashboardpanel)
         Controls.Add(Panel3)
         Controls.Add(Panel1)
